@@ -46,7 +46,7 @@ export default function Home() {
         <div className="hero-portrait-wrap">
           <div className="portrait-shape" />
           <img className="hero-portrait" src="/madison-headshot.png" alt="Madison, registered nurse and nursing tutor" />
-          <div className="portrait-note"><span>“</span>We&apos;ll make the hard stuff make sense.</div>
+          <div className="portrait-note"><span>“</span>We&apos;ll make the hard stuff make sense.”</div>
         </div>
       </section>
 
