@@ -7,6 +7,11 @@ const calendly = {
   intensive: "https://calendly.com/studywithmadisonrn/packages/5b6fa8d0-259e-4628-a5ad-7f7006ed279c",
 };
 
+const portal = {
+  readiness: "https://madisondvahle-lab.github.io/nclex-success-center/free-readiness-check.html",
+  signIn: "https://madisondvahle-lab.github.io/nclex-success-center/student-login.html",
+};
+
 const packages = [
   { name: "Single Session", price: "$50", detail: "60 minutes", copy: "A focused 1:1 session for a difficult topic, an upcoming exam, or a study-strategy reset.", href: calendly.single },
   { name: "Starter Pack", price: "$120", detail: "3 sessions · $40/session", copy: "A supportive starting point for building momentum and a clear plan.", href: calendly.three },
@@ -77,8 +82,8 @@ export default function Home() {
       </section>
 
       <section className="portal" id="student-portal">
-        <div><p className="eyebrow">For current tutoring students</p><h2>Your NCLEX Success Center.</h2><p>One private place to organize your study priorities, revisit personalized resources, and keep building on the work we do together.</p></div>
-        <div className="portal-card"><p className="portal-label">Student access</p><h3>Built around your progress.</h3><ul><li>Study plans and weekly priorities</li><li>Assessment review and focus areas</li><li>Targeted resources and tutoring notes</li></ul><p className="portal-note">Portal access is provided to active tutoring students. A secure sign-in is coming soon.</p></div>
+        <div><p className="eyebrow">Free tools + student access</p><h2>Your NCLEX Success Center.</h2><p>Start with a free readiness check, then keep your personalized study priorities, resources, and tutoring progress in one private place.</p><a className="button" href={portal.readiness}>Take the free readiness check <span>→</span></a></div>
+        <div className="portal-card"><p className="portal-label">Student access</p><h3>Built around your progress.</h3><ul><li>Study plans and weekly priorities</li><li>Assessment review and focus areas</li><li>Targeted resources and tutoring notes</li></ul><p className="portal-note">Current tutoring student? Sign in securely with the email you use for tutoring.</p><a className="portal-sign-in" href={portal.signIn}>Student sign in <span>→</span></a></div>
       </section>
 
       <section className="section about" id="about">
