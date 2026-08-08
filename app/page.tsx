@@ -22,6 +22,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#how-it-works">How it works</a>
           <a href="#services">Services</a>
+          <a href="#student-portal">Student portal</a>
           <a href="#about">About</a>
         </div>
         <a className="button button-small" href={calendly.consultation}>Free consultation</a>
@@ -73,6 +74,11 @@ export default function Home() {
       <section className="intensive">
         <div><p className="eyebrow light">High-touch NCLEX support</p><h2>NCLEX Intensive<br /><em>12 sessions · $400</em></h2><p>This is more than occasional tutoring. It&apos;s a personalized, accountability-centered program for students who want a clear plan and consistent guidance as they prepare for NCLEX.</p><a className="button button-light" href={calendly.intensive}>Learn about the Intensive <span>→</span></a></div>
         <ul><li><span>✓</span> Twelve private 60-minute Zoom sessions</li><li><span>✓</span> Personalized study plan, updated as you progress</li><li><span>✓</span> Daily study priorities and targeted resources</li><li><span>✓</span> Priority support between sessions, with replies within 24 hours</li><li><span>✓</span> Ongoing review of assessment results and weak areas</li></ul>
+      </section>
+
+      <section className="portal" id="student-portal">
+        <div><p className="eyebrow">For current tutoring students</p><h2>Your NCLEX Success Center.</h2><p>One private place to organize your study priorities, revisit personalized resources, and keep building on the work we do together.</p></div>
+        <div className="portal-card"><p className="portal-label">Student access</p><h3>Built around your progress.</h3><ul><li>Study plans and weekly priorities</li><li>Assessment review and focus areas</li><li>Targeted resources and tutoring notes</li></ul><p className="portal-note">Portal access is provided to active tutoring students. A secure sign-in is coming soon.</p></div>
       </section>
 
       <section className="section about" id="about">
