@@ -84,7 +84,7 @@ export default function Home() {
 
       <section className="intensive">
         <div><p className="eyebrow light">High-touch NCLEX support</p><h2>NCLEX Intensive<br /><em>12 sessions · $400</em></h2><p>This is more than occasional tutoring. It&apos;s a personalized, accountability-centered program for students who want a clear plan and consistent guidance as they prepare for NCLEX.</p><a className="button button-light" href={calendly.intensive}>Learn about the Intensive <span>→</span></a></div>
-        <ul><li><span>✓</span> Twelve private 60-minute Zoom sessions</li><li><span>✓</span> Personalized test-day roadmap, updated as you progress</li><li><span>✓</span> 24/7 direct text support, plus access to your study plan and resources</li><li><span>✓</span> Priority booking with preferred coaching-session availability</li><li><span>✓</span> Flexible rescheduling and complimentary cancellation options</li><li><span>✓</span> Shared review of assessments, trends, and weak areas</li><li><span>✓</span> Priority coaching support between sessions, with replies within 24 hours</li></ul>
+        <ul><li><span>✓</span> Twelve private 60-minute Zoom sessions</li><li><span>✓</span> Personalized test-day roadmap, updated as you progress</li><li><span>✓</span> 24/7 direct text support for your personalized NCLEX plan</li><li><span>✓</span> Priority booking with preferred coaching-session availability</li><li><span>✓</span> Flexible rescheduling and complimentary cancellation options</li><li><span>✓</span> Shared review of assessments, trends, and weak areas</li><li><span>✓</span> Priority coaching support between sessions, with replies within 24 hours</li></ul>
       </section>
 
       <section className="portal" id="student-portal">
