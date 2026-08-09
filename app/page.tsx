@@ -28,6 +28,7 @@ export default function Home() {
           <a href="#how-it-works">How it works</a>
           <a href="#services">Services</a>
           <a href="#student-portal">Student portal</a>
+          <a href="/blog">Blog</a>
           <a href="#about">About</a>
         </div>
         <a className="button button-small" href={calendly.consultation}>Free consultation</a>
@@ -58,6 +59,11 @@ export default function Home() {
       <section className="intro-band" aria-label="Tutoring focus areas">
         <p>I help nursing students with</p>
         <div><span>NCLEX strategy</span><span>HESI / TEAS prep</span><span>Exam preparation</span><span>Clinical judgment</span></div>
+      </section>
+
+      <section className="blog-preview" aria-labelledby="blog-title">
+        <div><p className="eyebrow">From the blog</p><h2 id="blog-title">Less overwhelm.<br /><em>More strategy.</em></h2><p>Practical NCLEX study guidance for the moments you are tempted to buy one more resource instead of making a clear plan.</p><a className="text-link" href="/blog">Visit the blog <span>→</span></a></div>
+        <article className="featured-post"><p className="post-label">Featured article · 7 min read</p><h3>You Don&apos;t Need Another Q Bank — You Need a Plan.</h3><p>More questions are not automatically the answer. Learn how to turn the study tools you already have into a plan that actually moves you forward.</p><a className="button" href="/blog">Read the article <span>→</span></a></article>
       </section>
 
       <section className="section how" id="how-it-works">
