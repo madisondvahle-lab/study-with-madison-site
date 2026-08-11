@@ -1,0 +1,29 @@
+@media (max-width: 520px) {
+  .nav {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 10px !important;
+    padding: 16px 18px !important;
+  }
+
+  .nav > .brand {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 4px;
+  }
+
+  .nav > .button {
+    width: 100%;
+    min-width: 0;
+    margin-left: 0 !important;
+    padding: 12px 10px !important;
+    font-size: 0.76rem !important;
+    gap: 7px !important;
+    white-space: nowrap;
+  }
+
+  .nav > .button-small {
+    display: inline-flex !important;
+  }
+}
