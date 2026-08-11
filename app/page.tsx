@@ -31,6 +31,7 @@ export default function Home() {
           <a href="/blog">Blog</a>
           <a href="#about">About</a>
         </div>
+        <a className="button" href={portal.signIn} style={{ padding: "12px 18px", fontSize: ".82rem", whiteSpace: "nowrap" }}>Student Login <span>→</span></a>
         <a className="button button-small" href={calendly.consultation}>Free consultation</a>
       </nav>
 
