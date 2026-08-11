@@ -22,7 +22,7 @@ const packages = [
 export default function Home() {
   return (
     <main>
-      <nav className="nav" aria-label="Primary navigation">
+      <nav className="nav" aria-label="Primary navigation" style={{ flexWrap: "wrap" }}>
         <a className="brand" href="#top" aria-label="Study With Madison home"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a>
         <div className="nav-links">
           <a href="#how-it-works">How it works</a>
@@ -31,7 +31,7 @@ export default function Home() {
           <a href="/blog">Blog</a>
           <a href="#about">About</a>
         </div>
-        <a className="button" href={portal.signIn} style={{ padding: "12px 18px", fontSize: ".82rem", whiteSpace: "nowrap" }}>Student Login <span>→</span></a>
+        <a className="button" href={portal.signIn} style={{ padding: "12px 18px", fontSize: ".82rem", whiteSpace: "nowrap", marginLeft: "auto", flexShrink: 0 }}>Student Login <span>→</span></a>
         <a className="button button-small" href={calendly.consultation}>Free consultation</a>
       </nav>
 
