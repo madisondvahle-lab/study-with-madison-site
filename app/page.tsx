@@ -4,7 +4,9 @@ const calendly = {
   three: "https://calendly.com/studywithmadisonrn/packages/2d195e26-b850-4682-a30f-14de5c8361f2",
   five: "https://calendly.com/studywithmadisonrn/packages/274033c2-9972-4d01-9b6d-c620ed5112b2",
   eight: "https://calendly.com/studywithmadisonrn/packages/72afc34c-f344-47ad-802c-2e95db646cec",
-  intensive: "https://calendly.com/studywithmadisonrn/packages/5b6fa8d0-259e-4628-a5ad-7f7006ed279c",
+  momentum: "https://calendly.com/studywithmadisonrn/packages/5b6fa8d0-259e-4628-a5ad-7f7006ed279c",
+  intensive: "https://calendly.com/studywithmadisonrn/packages/8cd657fe-bb52-454a-9be9-ffdab8505466",
+  complete: "https://calendly.com/studywithmadisonrn/packages/24aac88d-0760-484e-ad1a-d64609049825",
 };
 
 const portal = {
@@ -13,10 +15,10 @@ const portal = {
 };
 
 const packages = [
-  { name: "Single Session", price: "$50", detail: "60 minutes", copy: "A focused 1:1 session for a difficult topic, an upcoming exam, or a study-strategy reset.", href: calendly.single },
-  { name: "Starter Pack", price: "$120", detail: "3 sessions · $40/session", copy: "A supportive starting point for building momentum and a clear plan.", href: calendly.three },
-  { name: "Momentum Pack", price: "$175", detail: "5 sessions · $35/session", copy: "Consistent support for a challenging unit, exam preparation, or stronger routines.", href: calendly.five },
-  { name: "8-Session Package", price: "$260", detail: "8 sessions · $32.50/session", copy: "For students who want steady guidance and time to build confidence across several topics.", href: calendly.eight },
+  { name: "Strategy Session", price: "$50", detail: "1 private 60-minute session", copy: "A focused review of your results, question strategy, a difficult topic, or your next steps.", href: calendly.single },
+  { name: "3-Session Package", price: "$120", detail: "3 private 60-minute sessions", copy: "A clear starting point for focused content review, question strategy, and a stronger plan.", href: calendly.three },
+  { name: "5-Session Package", price: "$175", detail: "5 private 60-minute sessions", copy: "More time to address patterns, practice application, and build consistency.", href: calendly.five },
+  { name: "8-Session Package", price: "$260", detail: "8 private 60-minute sessions", copy: "Ongoing coaching for students who benefit from steady guidance and accountability.", href: calendly.eight },
 ];
 
 export default function Home() {
@@ -27,6 +29,7 @@ export default function Home() {
         <div className="nav-links">
           <a href="#how-it-works">How it works</a>
           <a href="#services">Services</a>
+          <a href="#nclex-coaching">NCLEX coaching</a>
           <a href="#student-portal">Student portal</a>
           <a href="/blog">Blog</a>
           <a href="#about">About</a>
@@ -77,15 +80,69 @@ export default function Home() {
       </section>
 
       <section className="section services" id="services">
-        <div className="section-heading service-heading"><p className="eyebrow">Choose your level of support</p><h2>Tutoring that meets you<br />where you are.</h2><p className="section-intro">Not sure which option fits? Begin with a free consultation and we&apos;ll decide together.</p><a className="text-link" href={calendly.consultation}>Book a free consultation <span>→</span></a></div>
+        <div className="section-heading service-heading"><p className="eyebrow">Flexible tutoring support</p><h2>Choose the amount of help<br />that fits right now.</h2><p className="section-intro">Use a single session for targeted help or choose a smaller package when you want more continuity. NCLEX candidates who need a more structured plan can compare the coaching options below.</p><a className="text-link" href={calendly.consultation}>Book a free consultation <span>→</span></a></div>
         <div className="package-grid">
-          {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h3>{item.name}</h3><p className="package-price">{item.price}</p><p>{item.copy}</p><a href={item.href}>Book this option <span>→</span></a></article>)}
+          {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h3>{item.name}</h3><p className="package-price">{item.price}</p><p>{item.copy}</p><a href={item.href}>Choose this option <span>→</span></a></article>)}
         </div>
       </section>
 
-      <section className="intensive">
-        <div><p className="eyebrow light">High-touch NCLEX support</p><h2>NCLEX Intensive<br /><em>12 sessions · $400</em></h2><p>This is more than occasional tutoring. It&apos;s a personalized, accountability-centered program for students who want a clear plan and consistent guidance as they prepare for NCLEX.</p><a className="button button-light" href={calendly.intensive}>Learn about the Intensive <span>→</span></a></div>
-        <ul><li><span>✓</span> Twelve private 60-minute Zoom sessions</li><li><span>✓</span> Personalized test-day roadmap, updated as you progress</li><li><span>✓</span> 24/7 direct text support for your personalized NCLEX plan</li><li><span>✓</span> Priority booking with preferred coaching-session availability</li><li><span>✓</span> Flexible rescheduling and complimentary cancellation options</li><li><span>✓</span> Shared review of assessments, trends, and weak areas</li><li><span>✓</span> Priority coaching support between sessions, with replies within 24 hours</li></ul>
+      <section className="coaching-options" id="nclex-coaching">
+        <div className="coaching-options-head">
+          <p className="eyebrow">Personalized NCLEX coaching</p>
+          <h2>The right level of support,<br /><em>built around your results.</em></h2>
+          <p>For candidates who want more than occasional tutoring, these options combine coaching with structured planning and progress support. Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
+        </div>
+        <div className="coaching-tier-grid">
+          <article className="coaching-tier">
+            <p className="tier-kicker">Structured coaching</p>
+            <h3>NCLEX Momentum Coaching</h3>
+            <p className="tier-price">$400</p>
+            <p className="tier-meta">12 private 60-minute sessions</p>
+            <p>A structured coaching plan for students who want consistency, a clear roadmap, and meaningful progress between sessions.</p>
+            <ul>
+              <li>Readiness and CPR review</li>
+              <li>Personalized study roadmap</li>
+              <li>Targeted practice assignments</li>
+              <li>Private progress portal</li>
+              <li>Mid-plan check-in and adjustment</li>
+            </ul>
+            <a className="button" href={calendly.momentum}>Choose Momentum Coaching <span>→</span></a>
+          </article>
+
+          <article className="coaching-tier">
+            <p className="tier-kicker">Comprehensive coaching</p>
+            <h3>NCLEX Intensive Coaching</h3>
+            <p className="tier-price">$840</p>
+            <p className="tier-meta">12 private 90-minute sessions</p>
+            <p>For candidates who need a tailored plan and consistent support across content, clinical judgment, and question strategy.</p>
+            <ul>
+              <li>12 private 90-minute coaching sessions</li>
+              <li>Diagnostic and CPR review</li>
+              <li>Personalized study roadmap</li>
+              <li>Targeted practice assignments</li>
+              <li>Private progress portal</li>
+            </ul>
+            <a className="button" href={calendly.intensive}>Choose Intensive Coaching <span>→</span></a>
+          </article>
+
+          <article className="coaching-tier featured">
+            <span className="tier-pill">Most supported</span>
+            <p className="tier-kicker">High-touch coaching</p>
+            <h3>NCLEX Complete Support + Live CAT</h3>
+            <p className="tier-price">$1,350</p>
+            <p className="tier-meta">Complete coaching experience</p>
+            <p>For candidates who want close accountability, a personalized weekly structure, and a realistic adaptive test experience before test day.</p>
+            <ul>
+              <li>Everything in NCLEX Intensive Coaching</li>
+              <li>Personalized weekly study schedule and check-ins</li>
+              <li>Priority text support between sessions, with coaching replies Monday through Friday within one business day</li>
+              <li>One live adaptive CAT simulation, reserved for up to 3 hours</li>
+              <li>Detailed post-CAT review and plan update</li>
+            </ul>
+            <a className="button" href={calendly.complete}>Choose Complete Support <span>→</span></a>
+          </article>
+        </div>
+        <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. One live CAT appointment includes up to three reserved hours; candidates with approved testing accommodations may arrange additional reserved time in advance. Coaching does not guarantee an NCLEX outcome.</p>
       </section>
 
       <section className="portal" id="student-portal">
