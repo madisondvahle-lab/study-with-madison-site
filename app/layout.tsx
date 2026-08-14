@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./mobile-nav.css";
+import "./coaching-options.css";
 
 export const metadata: Metadata = {
   title: "Study With Madison, RN | Personalized Nursing Tutoring",
