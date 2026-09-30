@@ -120,12 +120,15 @@ export default function Home() {
             <p>For candidates who want a personalized study plan, consistent coaching, and progress support between sessions.</p>
           </div>
           <p className="coaching-context">Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
+          <p className="coaching-progression" aria-label="Coaching package progression"><span>Start with a clear plan</span><span>Build steady momentum</span><span>Get full support</span></p>
           <div className="coaching-tier-grid">
             <article className="coaching-tier">
-              <p className="tier-kicker">Structured coaching</p>
+              <p className="tier-kicker">Build your foundation</p>
               <h4>NCLEX Momentum Coaching</h4>
               <p className="tier-price">$400</p>
               <p className="tier-meta">12 private 60-minute sessions</p>
+              <p className="tier-fit"><strong>Best for:</strong> creating a clear plan and staying consistent.</p>
+              <p className="tier-promise"><strong>Retake-support promise:</strong> 3 complimentary 60-minute sessions if you do not pass.</p>
               <p>A structured coaching plan for students who want consistency, a clear roadmap, and meaningful progress between sessions.</p>
               <ul>
                 <li>Readiness and CPR review</li>
@@ -138,10 +141,12 @@ export default function Home() {
             </article>
 
             <article className="coaching-tier">
-              <p className="tier-kicker">Comprehensive coaching</p>
+              <p className="tier-kicker">Build steady momentum</p>
               <h4>NCLEX Intensive Coaching</h4>
               <p className="tier-price">$840</p>
               <p className="tier-meta">12 private 90-minute sessions</p>
+              <p className="tier-fit"><strong>Best for:</strong> deeper content, clinical judgment, and strategy support.</p>
+              <p className="tier-promise"><strong>Retake-support promise:</strong> 5 complimentary 60-minute sessions if you do not pass.</p>
               <p>For candidates who need a tailored plan and consistent support across content, clinical judgment, and question strategy.</p>
               <ul>
                 <li>12 private 90-minute coaching sessions</li>
@@ -155,22 +160,24 @@ export default function Home() {
 
             <article className="coaching-tier featured">
               <span className="tier-pill">Most supported</span>
-              <p className="tier-kicker">High-touch coaching</p>
+              <p className="tier-kicker">Get full support</p>
               <h4>NCLEX Complete Support + Live CAT</h4>
               <p className="tier-price">$1,350</p>
               <p className="tier-meta">Complete coaching experience</p>
+              <p className="tier-value">Includes a live CAT simulation, detailed review, and priority support between sessions.</p>
+              <p className="tier-fit"><strong>Best for:</strong> high-touch accountability before test day.</p>
+              <p className="tier-promise"><strong>Retake-support promise:</strong> 8 complimentary 60-minute sessions if you do not pass.</p>
               <p>For candidates who want close accountability, a personalized weekly structure, and a realistic adaptive test experience before test day.</p>
               <ul>
                 <li>Everything in NCLEX Intensive Coaching</li>
                 <li>Personalized weekly study schedule and check-ins</li>
                 <li>Priority text support between sessions, with coaching replies Monday through Friday within one business day</li>
-                <li>One live adaptive CAT simulation, reserved for up to 3 hours</li>
-                <li>Detailed post-CAT review and plan update</li>
+                <li>One live adaptive CAT simulation with a detailed post-CAT plan update</li>
               </ul>
               <a className="button" href={calendly.complete}>Choose Complete Support <span>→</span></a>
             </article>
           </div>
-          <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. One live CAT appointment includes up to three reserved hours; candidates with approved testing accommodations may arrange additional reserved time in advance. Coaching does not guarantee an NCLEX outcome.</p>
+          <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. Retake-support sessions are available once to candidates who complete their booked coaching sessions, follow their agreed study commitments, and take the NCLEX within 90 days of their final coaching session. Retake-support sessions must be used within 6 months of a confirmed unsuccessful attempt. One live CAT appointment includes up to three reserved hours; candidates with approved testing accommodations may arrange additional reserved time in advance. Coaching does not guarantee an NCLEX outcome.</p>
         </div>
       </section>
 
