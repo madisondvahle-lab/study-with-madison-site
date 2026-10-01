@@ -20,12 +20,14 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
 }
 
 .coaching-tier {
   position: relative;
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   min-height: 520px;
   padding: 32px;
   background: var(--paper);
@@ -53,7 +55,7 @@
   color: #f1c0c5;
 }
 
-.coaching-tier h3 {
+.coaching-tier h4 {
   font-family: "DM Serif Display", Georgia, serif;
   font-size: 2rem;
   font-weight: 400;
@@ -80,9 +82,56 @@
   margin-bottom: 20px;
 }
 
+.coaching-tier .tier-fit {
+  margin: 0 0 16px;
+  color: #426079;
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.coaching-tier .tier-fit strong {
+  color: var(--ink);
+}
+
+.coaching-tier .tier-promise {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  background: #fff7f1;
+  border-left: 3px solid var(--rose);
+  color: #426079;
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.coaching-tier .tier-promise strong {
+  color: var(--ink);
+}
+
 .coaching-tier.featured .tier-meta,
-.coaching-tier.featured > p:not(.tier-kicker):not(.tier-price) {
-  color: #eddce4;
+.coaching-tier.featured > p:not(.tier-kicker):not(.tier-price):not(.tier-value) {
+  color: #f7ecf1;
+}
+
+.coaching-tier.featured .tier-fit strong {
+  color: #fff;
+}
+
+.coaching-tier.featured .tier-promise {
+  background: #503650;
+  border-color: #f1c0c5;
+  color: #f7ecf1;
+}
+
+.coaching-tier.featured .tier-promise strong {
+  color: #fff;
+}
+
+.coaching-tier .tier-value {
+  margin: -5px 0 16px;
+  color: #f4bdc4;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .coaching-tier > p:not(.tier-kicker):not(.tier-price):not(.tier-meta) {
