@@ -82,7 +82,7 @@ export default function Home() {
       <section className="section services" id="services">
         <div className="section-heading service-heading"><p className="eyebrow">Flexible tutoring support</p><h2>Choose the amount of help<br />that fits right now.</h2><p className="section-intro">Use a single session for targeted help or choose a smaller package when you want more continuity. NCLEX candidates who need a more structured plan can compare the coaching options below.</p><a className="text-link" href={calendly.consultation}>Book a free consultation <span>→</span></a></div>
         <div className="package-grid">
-          {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h3>{item.name}</h3><p className="package-price">{item.price}</p><p>{item.copy}</p><a href={item.href}>Choose this option <span>→</span></a></article>)}
+          {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h3>{item.name}</h3><p className="package-price">{item.price}</p><p>{item.copy}</p><a className="button package-button" href={item.href}>Choose this option <span>→</span></a></article>)}
         </div>
       </section>
 
