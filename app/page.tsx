@@ -110,7 +110,7 @@ export default function Home() {
             <p>For course exams, content review, question strategy, or a focused next step.</p>
           </div>
           <div className="package-grid">
-            {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h4>{item.name}</h4><p className="package-price">{item.price}</p><p>{item.copy}</p><a href={item.href}>Choose this option <span>→</span></a></article>)}
+            {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h4>{item.name}</h4><p className="package-price">{item.price}</p><p>{item.copy}</p><a className="button package-button" href={item.href}>Choose this option <span>→</span></a></article>)}
           </div>
         </div>
 
