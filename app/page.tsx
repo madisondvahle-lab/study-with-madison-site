@@ -22,8 +22,24 @@ const packages = [
 ];
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Study With Madison, RN",
+    url: "https://studywithmadison.com/",
+    description: "Personalized online nursing tutoring for exam preparation, HESI/TEAS, and NCLEX strategy.",
+    provider: {
+      "@type": "Person",
+      name: "Madison Vahle",
+      jobTitle: "Registered Nurse and Nursing Tutor",
+    },
+    areaServed: "US",
+    serviceType: ["NCLEX tutoring", "Nursing tutoring", "HESI preparation", "TEAS preparation"],
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <nav className="nav" aria-label="Primary navigation" style={{ flexWrap: "wrap" }}>
         <a className="brand" href="#top" aria-label="Study With Madison home"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a>
         <div className="nav-links">

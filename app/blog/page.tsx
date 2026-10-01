@@ -3,6 +3,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "NCLEX Study Strategy | Study With Madison, RN",
   description: "You don't need another Q bank—you need a study plan that works for you.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "NCLEX Study Strategy | Study With Madison, RN",
+    description: "You don't need another Q bank—you need a study plan that works for you.",
+    url: "https://studywithmadison.com/blog",
+    type: "article",
+  },
 };
 
 const consultation = "https://calendly.com/studywithmadisonrn/free-consultation";
