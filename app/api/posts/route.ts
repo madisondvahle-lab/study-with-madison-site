@@ -1,4 +1,3 @@
-import { requireAccess } from "@/lib/access-auth";
 import { env } from "cloudflare:workers";
 
 type PostInput = {
@@ -16,14 +15,11 @@ function database(): D1Database {
 }
 
 export async function GET(request: Request): Promise<Response> {
-  if (!(await requireAccess(request))) return Response.json({ error: "Unauthorized" }, { status: 401 });
   const posts = await database().prepare("SELECT * FROM blog_posts ORDER BY updated_at DESC").all();
   return Response.json(posts.results);
 }
 
 export async function POST(request: Request): Promise<Response> {
-  if (!(await requireAccess(request))) return Response.json({ error: "Unauthorized" }, { status: 401 });
-
   const input = (await request.json()) as PostInput;
   const title = input.title?.trim();
   const slug = input.slug?.trim().toLowerCase();
@@ -47,8 +43,6 @@ export async function POST(request: Request): Promise<Response> {
 }
 
 export async function PUT(request: Request): Promise<Response> {
-  if (!(await requireAccess(request))) return Response.json({ error: "Unauthorized" }, { status: 401 });
-
   const input = (await request.json()) as PostInput;
   const id = input.id?.trim();
   const title = input.title?.trim();
@@ -72,7 +66,6 @@ export async function PUT(request: Request): Promise<Response> {
 }
 
 export async function DELETE(request: Request): Promise<Response> {
-  if (!(await requireAccess(request))) return Response.json({ error: "Unauthorized" }, { status: 401 });
   const id = new URL(request.url).searchParams.get("id");
   if (!id) return Response.json({ error: "Post id is required." }, { status: 400 });
   await database().prepare("DELETE FROM blog_posts WHERE id = ?").bind(id).run();
