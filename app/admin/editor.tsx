@@ -19,7 +19,12 @@ export default function AdminEditor() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("/api/posts").then(async (response) => response.ok && setPosts(await response.json()));
+    fetch("/api/posts")
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Unable to load posts (${response.status}).`);
+        setPosts(await response.json());
+      })
+      .catch((error: Error) => setMessage(error.message));
   }, []);
 
   function update(field: keyof typeof emptyPost, value: string) {
@@ -29,17 +34,21 @@ export default function AdminEditor() {
   async function save(event: FormEvent) {
     event.preventDefault();
     setMessage("Saving…");
-    const response = await fetch("/api/posts", {
-      method: "id" in post ? "PUT" : "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(post),
-    });
-    if (!response.ok) {
-      setMessage((await response.json()).error ?? "Unable to save post.");
-      return;
+    try {
+      const response = await fetch("/api/posts", {
+        method: "id" in post ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(post),
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null) as { error?: string } | null;
+        throw new Error(body?.error ?? `Unable to save post (${response.status}).`);
+      }
+      setMessage("Saved.");
+      setPosts(await (await fetch("/api/posts")).json());
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Unable to save post.");
     }
-    setMessage("Saved.");
-    setPosts(await (await fetch("/api/posts")).json());
   }
 
   return <main className="admin-shell">
