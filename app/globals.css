@@ -1,6 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
 @import "tailwindcss";
 
+.admin-shell {
+  min-height: 100vh;
+  background: #f8f5f0;
+}
+
+.admin-panel {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.admin-panel form {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0 3rem;
+}
+
+.admin-panel label {
+  display: grid;
+  gap: .4rem;
+  font-weight: 600;
+}
+
+.admin-panel input,
+.admin-panel textarea,
+.admin-panel select {
+  width: 100%;
+  border: 1px solid #c9c1b8;
+  border-radius: .4rem;
+  padding: .7rem;
+  background: white;
+  font: inherit;
+}
+
+.admin-panel textarea {
+  min-height: 6rem;
+}
+
+.admin-panel .admin-content {
+  min-height: 20rem;
+}
+
 :root { --ink:#183550; --cream:#fcf8f2; --paper:#fffdf9; --peach:#f4d4c5; --rose:#bd6f7f; --plum:#382338; --sage:#dce6dc; --line:#d9e2df; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }

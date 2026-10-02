@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { listPublishedPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "NCLEX Study Strategy | Study With Madison, RN",
@@ -14,9 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+
 const consultation = "https://calendly.com/studywithmadisonrn/free-consultation";
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const posts = await listPublishedPosts();
+
   return <main>
     <nav className="nav" aria-label="Primary navigation">
       <a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a>
@@ -33,6 +38,17 @@ export default function BlogPage() {
       <h2>What Actually Moves the Needle</h2><p>Targeted feedback changes outcomes. The goal is to identify your specific pattern and build a plan around it—rather than follow a generic schedule or chase the next subscription.</p>
       <h2>A Better Way to Spend That Money</h2><ol><li><strong>Pick one Q bank and stick with it.</strong> You do not need three.</li><li><strong>Stop doing questions randomly.</strong> Work by content area and deliberately drill weak spots.</li><li><strong>Learn how to analyze rationales.</strong> Understanding the pattern matters more than memorizing an answer.</li><li><strong>Decide whether you need content review or more questions.</strong> They solve different problems.</li><li><strong>Get specific feedback.</strong> A tutor, professor, or study group can help you pinpoint what is actually in your way.</li></ol><p>You&apos;ve already spent a lot of money trying to pass. Make sure the next dollar you spend is pointed at the real problem.</p>
     </article>
+    {posts.length > 0 && <section className="article-content">
+      <p className="eyebrow">More from Madison</p>
+      <h2>Recent study strategy</h2>
+      <div className="blog-post-list">
+        {posts.map((post) => <article key={post.id}>
+          <p className="article-meta">{post.publishedAt ? new Date(post.publishedAt).toLocaleDateString() : ""}</p>
+          <h3><a href={`/blog/${post.slug}`}>{post.title}</a></h3>
+          <p>{post.description}</p>
+        </article>)}
+      </div>
+    </section>}
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href={consultation}>Book a free consultation <span>→</span></a></section>
     <footer><a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href={consultation}>Book a free consultation →</a></footer>
   </main>
