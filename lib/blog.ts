@@ -35,8 +35,25 @@ export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
 export function renderBlogContent(content: string): string {
   return content
     .split(/\n{2,}/)
-    .map((paragraph) => `<p>${escapeHtml(paragraph.trim()).replace(/\n/g, "<br />")}</p>`)
+    .map((block) => {
+      const lines = block.trim().split("\n");
+      if (lines.every((line) => /^- /.test(line))) {
+        return `<ul>${lines.map((line) => `<li>${formatInline(line.slice(2))}</li>`).join("")}</ul>`;
+      }
+      const heading = lines.join(" ").match(/^(#{1,3}) (.+)$/);
+      if (heading) {
+        return `<h${heading[1].length}>${formatInline(heading[2])}</h${heading[1].length}>`;
+      }
+      return `<p>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
+    })
     .join("");
+}
+
+function formatInline(value: string): string {
+  return escapeHtml(value)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
 }
 
 function escapeHtml(value: string): string {

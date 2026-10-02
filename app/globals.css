@@ -43,6 +43,20 @@
   min-height: 20rem;
 }
 
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.editor-toolbar button {
+  border: 1px solid #c9c1b8;
+  border-radius: .3rem;
+  padding: .35rem .6rem;
+  background: #fff;
+  cursor: pointer;
+}
+
 :root { --ink:#183550; --cream:#fcf8f2; --paper:#fffdf9; --peach:#f4d4c5; --rose:#bd6f7f; --plum:#382338; --sage:#dce6dc; --line:#d9e2df; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
