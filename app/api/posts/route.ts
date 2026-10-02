@@ -1,4 +1,5 @@
 import { env } from "cloudflare:workers";
+import { legacyPost } from "@/lib/legacy-post";
 
 type PostInput = {
   id?: string;
@@ -15,7 +16,15 @@ function database(): D1Database {
 }
 
 export async function GET(request: Request): Promise<Response> {
-  const posts = await database().prepare("SELECT * FROM blog_posts ORDER BY updated_at DESC").all();
+  const db = database();
+  const existing = await db.prepare("SELECT id FROM blog_posts WHERE id = ?").bind(legacyPost.id).first();
+  if (!existing) {
+    await db
+      .prepare("INSERT INTO blog_posts (id, slug, title, description, content, author, status, published_at, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+      .bind(legacyPost.id, legacyPost.slug, legacyPost.title, legacyPost.description, legacyPost.content, legacyPost.author, legacyPost.status, legacyPost.publishedAt, legacyPost.createdAt, legacyPost.updatedAt)
+      .run();
+  }
+  const posts = await db.prepare("SELECT * FROM blog_posts ORDER BY updated_at DESC").all();
   return Response.json(posts.results);
 }
 
