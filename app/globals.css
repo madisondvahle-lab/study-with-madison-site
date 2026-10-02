@@ -43,6 +43,20 @@
   min-height: 20rem;
 }
 
+.admin-rich-editor {
+  overflow-y: auto;
+  border: 1px solid #c9c1b8;
+  border-radius: .4rem;
+  padding: 1rem;
+  background: white;
+  font-weight: 400;
+}
+
+.admin-rich-editor:focus {
+  outline: 2px solid var(--rose);
+  outline-offset: 1px;
+}
+
 .editor-toolbar {
   display: flex;
   flex-wrap: wrap;

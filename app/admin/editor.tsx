@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { renderBlogContent } from "@/lib/blog-content";
 
 type Post = {
   id: string;
@@ -17,7 +18,7 @@ export default function AdminEditor() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [post, setPost] = useState<Post | Omit<Post, "id">>(emptyPost);
   const [message, setMessage] = useState("");
-  const contentRef = useRef<HTMLTextAreaElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/api/posts")
@@ -32,36 +33,16 @@ export default function AdminEditor() {
     setPost((current) => ({ ...current, [field]: value }));
   }
 
-  function insertFormatting(prefix: string, suffix = "", placeholder = "text") {
-    const textarea = contentRef.current;
-    if (!textarea) return;
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selected = post.content.slice(start, end) || placeholder;
-    const nextContent = `${post.content.slice(0, start)}${prefix}${selected}${suffix}${post.content.slice(end)}`;
-    update("content", nextContent);
-    requestAnimationFrame(() => {
-      textarea.focus();
-      textarea.setSelectionRange(start + prefix.length, start + prefix.length + selected.length);
-    });
+  function format(command: string, value?: string) {
+    contentRef.current?.focus();
+    document.execCommand(command, false, value);
+    if (contentRef.current) update("content", contentRef.current.innerHTML);
   }
 
   function insertLink() {
-    const textarea = contentRef.current;
-    if (!textarea) return;
-    const start = textarea.selectionStart;
-    const end = textarea.selectionEnd;
-    const selected = post.content.slice(start, end);
-    const text = window.prompt("Text to display", selected || "Book a free consultation");
-    if (!text) return;
+    contentRef.current?.focus();
     const url = window.prompt("Destination URL, including https://");
-    if (!url?.startsWith("https://")) return;
-    const markdownLink = `[${text}](${url})`;
-    update("content", `${post.content.slice(0, start)}${markdownLink}${post.content.slice(end)}`);
-    requestAnimationFrame(() => {
-      textarea.focus();
-      textarea.setSelectionRange(start + markdownLink.length, start + markdownLink.length);
-    });
+    if (url?.startsWith("https://")) format("createLink", url);
   }
 
   async function save(event: FormEvent) {
@@ -94,15 +75,28 @@ export default function AdminEditor() {
         <label>Description<textarea value={post.description} onChange={(event) => update("description", event.target.value)} required /></label>
         <label>Content
           <div className="editor-toolbar" aria-label="Formatting tools">
-            <button type="button" onClick={() => insertFormatting("# ", "", "Heading")}>Heading</button>
-            <button type="button" onClick={() => insertFormatting("**", "**")}>Bold</button>
-            <button type="button" onClick={() => insertFormatting("*", "*")}>Italic</button>
-            <button type="button" onClick={() => insertFormatting("- ", "", "List item")}>List</button>
-            <button type="button" onClick={() => insertFormatting("> ", "", "Callout quote")}>Quote</button>
+            <button type="button" onClick={() => format("formatBlock", "p")}>Body</button>
+            <button type="button" onClick={() => format("formatBlock", "h2")}>Heading</button>
+            <button type="button" onClick={() => format("formatBlock", "h3")}>Subheading</button>
+            <button type="button" onClick={() => format("bold")}>Bold</button>
+            <button type="button" onClick={() => format("italic")}>Italic</button>
+            <button type="button" onClick={() => format("underline")}>Underline</button>
+            <button type="button" onClick={() => format("insertUnorderedList")}>Bullets</button>
+            <button type="button" onClick={() => format("insertOrderedList")}>Numbered</button>
+            <button type="button" onClick={() => format("formatBlock", "blockquote")}>Quote</button>
             <button type="button" onClick={insertLink}>Link</button>
           </div>
-          <textarea ref={contentRef} className="admin-content" value={post.content} onChange={(event) => update("content", event.target.value)} required />
-          <small>Use the Link button for consultation, booking, or other external links.</small>
+          <div
+            key={"id" in post ? post.id : "new"}
+            ref={contentRef}
+            className="admin-content admin-rich-editor"
+            contentEditable
+            role="textbox"
+            aria-multiline="true"
+            onInput={(event) => update("content", event.currentTarget.innerHTML)}
+            dangerouslySetInnerHTML={{ __html: renderBlogContent(post.content) }}
+          />
+          <small>Select text before clicking Link to use it as the displayed hyperlink text.</small>
         </label>
         <label>Status<select value={post.status} onChange={(event) => update("status", event.target.value)}><option value="draft">Draft</option><option value="published">Published</option></select></label>
         <button className="button" type="submit">Save post</button><span>{message}</span>
