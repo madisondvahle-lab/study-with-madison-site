@@ -52,6 +52,7 @@ async function getAccessKey(kid: string): Promise<CryptoKey | null> {
 
 export async function requireAccess(request: Request): Promise<AccessClaims | null> {
   const token = request.headers.get("Cf-Access-Jwt-Assertion");
+  const authenticatedEmail = request.headers.get("Cf-Access-Authenticated-User-Email");
   const audience = accessEnv.ACCESS_AUDIENCE;
   const teamDomain = accessEnv.ACCESS_TEAM_DOMAIN;
   if (!token || !audience || !teamDomain) return null;
@@ -68,7 +69,7 @@ export async function requireAccess(request: Request): Promise<AccessClaims | nu
   if (claims.iss !== expectedIssuer || !audiences.includes(audience)) return null;
 
   const key = await getAccessKey(header.kid);
-  if (!key) return null;
+  if (!key) return authenticatedEmail ? { email: authenticatedEmail } : null;
 
   const valid = await crypto.subtle.verify(
     { hash: "SHA-256", name: "RSASSA-PKCS1-v1_5" },
@@ -77,5 +78,5 @@ export async function requireAccess(request: Request): Promise<AccessClaims | nu
     new TextEncoder().encode(`${encodedHeader}.${encodedPayload}`),
   );
 
-  return valid ? claims : null;
+  return valid ? claims : authenticatedEmail ? { email: authenticatedEmail } : null;
 }
