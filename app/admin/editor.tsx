@@ -47,8 +47,21 @@ export default function AdminEditor() {
   }
 
   function insertLink() {
-    const url = window.prompt("Paste the full URL, including https://");
-    if (url?.startsWith("https://")) insertFormatting("[", `](${url})`, "link text");
+    const textarea = contentRef.current;
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selected = post.content.slice(start, end);
+    const text = window.prompt("Text to display", selected || "Book a free consultation");
+    if (!text) return;
+    const url = window.prompt("Destination URL, including https://");
+    if (!url?.startsWith("https://")) return;
+    const markdownLink = `[${text}](${url})`;
+    update("content", `${post.content.slice(0, start)}${markdownLink}${post.content.slice(end)}`);
+    requestAnimationFrame(() => {
+      textarea.focus();
+      textarea.setSelectionRange(start + markdownLink.length, start + markdownLink.length);
+    });
   }
 
   async function save(event: FormEvent) {
@@ -85,6 +98,7 @@ export default function AdminEditor() {
             <button type="button" onClick={() => insertFormatting("**", "**")}>Bold</button>
             <button type="button" onClick={() => insertFormatting("*", "*")}>Italic</button>
             <button type="button" onClick={() => insertFormatting("- ", "", "List item")}>List</button>
+            <button type="button" onClick={() => insertFormatting("> ", "", "Callout quote")}>Quote</button>
             <button type="button" onClick={insertLink}>Link</button>
           </div>
           <textarea ref={contentRef} className="admin-content" value={post.content} onChange={(event) => update("content", event.target.value)} required />

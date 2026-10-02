@@ -35,8 +35,11 @@ export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
 export function renderBlogContent(content: string): string {
   return content
     .split(/\n{2,}/)
-    .map((block) => {
+    .map((block, index) => {
       const lines = block.trim().split("\n");
+      if (lines.every((line) => /^> /.test(line))) {
+        return `<blockquote>${formatInline(lines.map((line) => line.slice(2)).join("\n")).replace(/\n/g, "<br />")}</blockquote>`;
+      }
       if (lines.every((line) => /^- /.test(line))) {
         return `<ul>${lines.map((line) => `<li>${formatInline(line.slice(2))}</li>`).join("")}</ul>`;
       }
@@ -44,7 +47,8 @@ export function renderBlogContent(content: string): string {
       if (heading) {
         return `<h${heading[1].length}>${formatInline(heading[2])}</h${heading[1].length}>`;
       }
-      return `<p>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
+      const className = index === 0 ? ' class="article-lead"' : "";
+      return `<p${className}>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
     })
     .join("");
 }
