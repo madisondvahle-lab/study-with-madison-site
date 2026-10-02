@@ -98,6 +98,7 @@ export default function AdminEditor() {
             <button type="button" onClick={() => insertFormatting("**", "**")}>Bold</button>
             <button type="button" onClick={() => insertFormatting("*", "*")}>Italic</button>
             <button type="button" onClick={() => insertFormatting("- ", "", "List item")}>List</button>
+            <button type="button" onClick={() => insertFormatting("> ", "", "Callout quote")}>Quote</button>
             <button type="button" onClick={insertLink}>Link</button>
           </div>
           <textarea ref={contentRef} className="admin-content" value={post.content} onChange={(event) => update("content", event.target.value)} required />
