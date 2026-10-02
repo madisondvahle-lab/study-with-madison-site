@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 
 type Post = {
   id: string;
@@ -17,29 +17,58 @@ export default function AdminEditor() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [post, setPost] = useState<Post | Omit<Post, "id">>(emptyPost);
   const [message, setMessage] = useState("");
+  const contentRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    fetch("/api/posts").then(async (response) => response.ok && setPosts(await response.json()));
+    fetch("/api/posts")
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Unable to load posts (${response.status}).`);
+        setPosts(await response.json());
+      })
+      .catch((error: Error) => setMessage(error.message));
   }, []);
 
   function update(field: keyof typeof emptyPost, value: string) {
     setPost((current) => ({ ...current, [field]: value }));
   }
 
+  function insertFormatting(prefix: string, suffix = "", placeholder = "text") {
+    const textarea = contentRef.current;
+    if (!textarea) return;
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selected = post.content.slice(start, end) || placeholder;
+    const nextContent = `${post.content.slice(0, start)}${prefix}${selected}${suffix}${post.content.slice(end)}`;
+    update("content", nextContent);
+    requestAnimationFrame(() => {
+      textarea.focus();
+      textarea.setSelectionRange(start + prefix.length, start + prefix.length + selected.length);
+    });
+  }
+
+  function insertLink() {
+    const url = window.prompt("Paste the full URL, including https://");
+    if (url?.startsWith("https://")) insertFormatting("[", `](${url})`, "link text");
+  }
+
   async function save(event: FormEvent) {
     event.preventDefault();
     setMessage("Saving…");
-    const response = await fetch("/api/posts", {
-      method: "id" in post ? "PUT" : "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(post),
-    });
-    if (!response.ok) {
-      setMessage((await response.json()).error ?? "Unable to save post.");
-      return;
+    try {
+      const response = await fetch("/api/posts", {
+        method: "id" in post ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(post),
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => null) as { error?: string } | null;
+        throw new Error(body?.error ?? `Unable to save post (${response.status}).`);
+      }
+      setMessage("Saved.");
+      setPosts(await (await fetch("/api/posts")).json());
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "Unable to save post.");
     }
-    setMessage("Saved.");
-    setPosts(await (await fetch("/api/posts")).json());
   }
 
   return <main className="admin-shell">
@@ -50,7 +79,17 @@ export default function AdminEditor() {
         <label>Title<input value={post.title} onChange={(event) => update("title", event.target.value)} required /></label>
         <label>Slug<input value={post.slug} onChange={(event) => update("slug", event.target.value)} pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required /></label>
         <label>Description<textarea value={post.description} onChange={(event) => update("description", event.target.value)} required /></label>
-        <label>Content<textarea className="admin-content" value={post.content} onChange={(event) => update("content", event.target.value)} required /></label>
+        <label>Content
+          <div className="editor-toolbar" aria-label="Formatting tools">
+            <button type="button" onClick={() => insertFormatting("# ", "", "Heading")}>Heading</button>
+            <button type="button" onClick={() => insertFormatting("**", "**")}>Bold</button>
+            <button type="button" onClick={() => insertFormatting("*", "*")}>Italic</button>
+            <button type="button" onClick={() => insertFormatting("- ", "", "List item")}>List</button>
+            <button type="button" onClick={insertLink}>Link</button>
+          </div>
+          <textarea ref={contentRef} className="admin-content" value={post.content} onChange={(event) => update("content", event.target.value)} required />
+          <small>Use the Link button for consultation, booking, or other external links.</small>
+        </label>
         <label>Status<select value={post.status} onChange={(event) => update("status", event.target.value)}><option value="draft">Draft</option><option value="published">Published</option></select></label>
         <button className="button" type="submit">Save post</button><span>{message}</span>
       </form>
