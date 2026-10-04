@@ -11,16 +11,6 @@ export function renderBlogContent(content: string): string {
         return `<blockquote>${formatInline(lines.map((line) => line.slice(2)).join("\n")).replace(/\n/g, "<br />")}</blockquote>`;
       }
 
-      function formatRichText(html: string): string {
-        let formatted = html.replace(
-          /<p>((?:Step|Part)\s+\d+\s*:[\s\S]*?)<\/p>/gi,
-          "<h2>$1</h2>",
-        );
-        if (formatted.startsWith("<p>")) {
-          formatted = formatted.replace(/^<p>/, '<p class="article-lead">');
-        }
-        return formatted;
-      }
       if (lines.every((line) => /^- /.test(line))) {
         return `<ul>${lines.map((line) => `<li>${formatInline(line.slice(2))}</li>`).join("")}</ul>`;
       }
@@ -32,6 +22,17 @@ export function renderBlogContent(content: string): string {
       return `<p${className}>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
     })
     .join("");
+}
+
+function formatRichText(html: string): string {
+  let formatted = html.replace(
+    /<p>((?:Step|Part)\s+\d+\s*:[\s\S]*?)<\/p>/gi,
+    "<h2>$1</h2>",
+  );
+  if (formatted.startsWith("<p>")) {
+    formatted = formatted.replace(/^<p>/, '<p class="article-lead">');
+  }
+  return formatted;
 }
 
 export function sanitizeRichText(html: string): string {
