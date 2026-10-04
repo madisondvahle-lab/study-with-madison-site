@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getPublishedPost, renderBlogContent } from "@/lib/blog";
+import { listPublishedPosts } from "@/lib/blog";
 import { legacyPost } from "@/lib/legacy-post";
 
 export const metadata: Metadata = {
@@ -22,7 +22,8 @@ function readTime(content: string): number {
 }
 
 export default async function BlogPage() {
-  const post = await getPublishedPost(legacyPost.slug) ?? legacyPost;
+  const storedPosts = await listPublishedPosts();
+  const posts = storedPosts.length ? storedPosts : [legacyPost];
 
   return <main>
     <nav className="nav" aria-label="Primary navigation">
@@ -30,8 +31,16 @@ export default async function BlogPage() {
       <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/#about">About</a></div>
       <a className="button button-small" href={consultation}>Free consultation</a>
     </nav>
-    <section className="blog-hero"><div><p className="eyebrow">NCLEX study strategy</p><h1>{post.title}</h1><p>{post.description}</p><p className="article-meta">By {post.author} · {readTime(post.content)} min read</p></div></section>
-    <article className="article-content" dangerouslySetInnerHTML={{ __html: renderBlogContent(post.content) }} />
+    <section className="blog-hero"><div><p className="eyebrow">NCLEX study strategy</p><h1>Practical guidance for your next step.</h1><p>Clear, focused study strategy for nursing students and NCLEX test-takers.</p></div></section>
+    <section className="post-list" aria-label="Published blog posts">
+      {posts.map((post) => <article className="featured-post" key={post.id}>
+        <p className="post-label">NCLEX study strategy</p>
+        <h2>{post.title}</h2>
+        <p>{post.description}</p>
+        <p className="article-meta">By {post.author} · {readTime(post.content)} min read</p>
+        <a className="button" href={`/blog/${post.slug}`}>Read article <span>→</span></a>
+      </article>)}
+    </section>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href={consultation}>Book a free consultation <span>→</span></a></section>
     <footer><a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href={consultation}>Book a free consultation →</a></footer>
   </main>;
