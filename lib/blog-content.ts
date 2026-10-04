@@ -25,7 +25,7 @@ export function renderBlogContent(content: string): string {
 }
 
 function formatRichText(html: string): string {
-  let formatted = html.replace(
+  let formatted = html.replace(/^(?:<br>|\s)+/gi, "").replace(
     /<p>((?:Step|Part)\s+\d+\s*:[\s\S]*?)<\/p>/gi,
     "<h2>$1</h2>",
   );
