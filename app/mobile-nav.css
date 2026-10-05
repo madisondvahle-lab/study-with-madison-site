@@ -1,3 +1,23 @@
+@media (max-width: 850px) {
+  .nav {
+    row-gap: 12px;
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 20px;
+  }
+
+  .nav-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
+
 @media (max-width: 520px) {
   .nav {
     display: grid !important;
@@ -11,6 +31,16 @@
     grid-column: 1 / -1;
     width: 100%;
     margin-bottom: 4px;
+  }
+
+  .nav > .nav-links {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+    gap: 2px 14px;
+  }
+
+  .nav-links a {
+    padding: 4px 0;
   }
 
   .nav > .button {
