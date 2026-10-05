@@ -157,7 +157,9 @@ export default function Home() {
           <div className="package-grid">
             {nursingPackages.map((item) => <SessionPackageCard item={item} key={item.name} />)}
           </div>
-          <p className="service-note">Semester Support sessions are valid for 4 months and can be used when you need them throughout the semester—you are not required to meet every week. Priority scheduling is intended for major exams and planning windows. Package students may send brief study-related questions between sessions for clarification, study direction, and accountability, with responses within one business day. The 3-Session Starter includes one follow-up check-in; 5-Session Course Support includes up to 2 messages per week; and 8-Session Semester Support includes up to 3 messages per week. Unlimited messaging, on-demand tutoring, and urgent clinical guidance are not included.</p>
+          <p className="service-note">Semester Support sessions are valid for 4 months and can be used when you need them throughout the semester. You are not required to meet every week.</p>
+          <p className="service-note">Students who purchase a tutoring package also have access to between-session support for questions, clarification, study guidance, and help staying on track. If you get stuck on a practice question, need clarification on something we covered, or have a quick question while studying, you are welcome to reach out.</p>
+          <p className="service-note">Between-session support is intended for brief questions and guidance that can reasonably be handled by message. Topics that require extensive teaching, assignment review, or a longer explanation may be saved for your next tutoring session or scheduled as an additional session.</p>
         </div>
 
         <aside className="consultation-callout">
