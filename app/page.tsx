@@ -142,9 +142,9 @@ export default function Home() {
           </article>
           <article className="support-path support-path-featured">
             <p className="eyebrow">Preparing for the NCLEX?</p>
-            <h3>NCLEX Coaching</h3>
-            <p>Focused preparation for first-time candidates and repeat testers who need a personalized plan.</p>
-            <a className="button button-light" href="#nclex-coaching">View NCLEX coaching <span>→</span></a>
+            <h3>NCLEX Preparation</h3>
+            <p>Choose targeted tutoring or a structured coaching program based on the level of support you need.</p>
+            <a className="button button-light" href="#nclex-coaching">View NCLEX pathways <span>→</span></a>
           </article>
         </div>
 
@@ -161,7 +161,7 @@ export default function Home() {
         </div>
 
         <aside className="consultation-callout">
-          <div><p className="eyebrow">Not sure which path fits?</p><h3>Let&apos;s figure out what support makes sense.</h3><p>The free consultation gives us time to talk through what you&apos;re struggling with, whether you need help across multiple courses, and which option fits your goals—so you don&apos;t have to guess.</p></div>
+          <div><p className="eyebrow">NCLEX support starts with the right fit</p><h3>Not sure what you need?</h3><p>Start with a free consultation. We&apos;ll look at your previous attempts, CPR, readiness or CAT results, current question-bank performance, timeline, and goals to determine what level of support actually makes sense—especially if you are retaking the NCLEX.</p></div>
           <a className="button" href={calendly.consultation}>Book a free consultation <span>→</span></a>
         </aside>
 
