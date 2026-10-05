@@ -108,6 +108,7 @@ export default function Home() {
             <p className="eyebrow">Currently in nursing school?</p>
             <h3>Nursing School Support</h3>
             <p>Private tutoring for the semester you&apos;re in and the nurse you&apos;re becoming.</p>
+            <p className="support-path-meta">Private sessions from <strong>$55</strong></p>
             <a href="#nursing-school-support">View nursing school support <span>→</span></a>
           </article>
           <article className="support-path support-path-featured">
