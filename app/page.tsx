@@ -14,11 +14,11 @@ const portal = {
   signIn: "https://madisondvahle-lab.github.io/nclex-success-center/student-login.html",
 };
 
-const packages = [
-  { name: "Strategy Session", price: "$50", detail: "1 private 60-minute session", copy: "A focused review of your results, question strategy, a difficult topic, or your next steps.", href: calendly.single },
-  { name: "3-Session Package", price: "$120", detail: "3 private 60-minute sessions", copy: "A clear starting point for focused content review, question strategy, and a stronger plan.", href: calendly.three },
-  { name: "5-Session Package", price: "$175", detail: "5 private 60-minute sessions", copy: "More time to address patterns, practice application, and build consistency.", href: calendly.five },
-  { name: "8-Session Package", price: "$260", detail: "8 private 60-minute sessions", copy: "Ongoing coaching for students who benefit from steady guidance and accountability.", href: calendly.eight },
+const nursingPackages = [
+  { name: "Individual Session", price: "$55", detail: "1 private 60-minute tutoring session", copy: "A focused session for a difficult topic, an upcoming exam, test-taking strategy, or getting unstuck in a specific course.", href: calendly.consultation, benefits: [], featured: false },
+  { name: "3-Session Starter", price: "$150", detail: "3 private 60-minute sessions · $50/session", copy: "Short-term support around a difficult unit, exam, or specific area of weakness.", href: calendly.consultation, benefits: [], featured: false },
+  { name: "5-Session Course Support", price: "$235", detail: "5 private 60-minute sessions · $47/session", copy: "Consistent support through several units or upcoming exams.", href: calendly.consultation, benefits: ["Course-content support", "NCLEX-style question strategy", "Clinical reasoning and prioritization", "Exam preparation and remediation", "Personalized study strategies"] },
+  { name: "8-Session Semester Support", price: "$360", detail: "8 private 60-minute sessions · $45/session", copy: "Ongoing academic support across the current semester—not simply a bundle of tutoring hours.", href: calendly.consultation, featured: true, benefits: ["Support across current nursing courses", "NCLEX-style test-taking and clinical reasoning", "Exam preparation and remediation", "Personalized study strategies", "Progress tracking", "Exam/unit planning", "Priority scheduling around major exams"] },
 ];
 
 export default function Home() {
@@ -105,30 +105,35 @@ export default function Home() {
 
         <div className="support-paths" aria-label="Choose your support path">
           <article className="support-path">
-            <p className="eyebrow">For focused help</p>
-            <h3>Targeted tutoring</h3>
-            <p>Get clear on a difficult topic, upcoming exam, question strategy, or your next study step.</p>
-            <p className="support-path-meta">Private sessions from <strong>$50</strong></p>
-            <a href="#tutoring-options">Explore tutoring options <span>→</span></a>
+            <p className="eyebrow">Currently in nursing school?</p>
+            <h3>Nursing School Support</h3>
+            <p>Private tutoring for the semester you&apos;re in and the nurse you&apos;re becoming.</p>
+            <a href="#nursing-school-support">View nursing school support <span>→</span></a>
           </article>
           <article className="support-path support-path-featured">
-            <p className="eyebrow">For NCLEX candidates</p>
-            <h3>Personalized NCLEX coaching</h3>
-            <p>Build a study roadmap with recurring coaching, targeted practice, and accountability between sessions.</p>
-            <p className="support-path-meta">12-session coaching plans from <strong>$400</strong></p>
-            <a className="button button-light" href="#nclex-coaching">Compare NCLEX coaching <span>→</span></a>
+            <p className="eyebrow">Preparing for the NCLEX?</p>
+            <h3>NCLEX Coaching</h3>
+            <p>Focused preparation for first-time candidates and repeat testers who need a personalized plan.</p>
+            <a className="button button-light" href="#nclex-coaching">View NCLEX coaching <span>→</span></a>
           </article>
         </div>
 
-        <div className="service-group" id="tutoring-options">
+        <div className="service-group nursing-school-group" id="nursing-school-support">
           <div className="service-group-heading">
-            <div><p className="eyebrow">Targeted tutoring</p><h3>Flexible help, when you need it.</h3></div>
-            <p>For course exams, content review, question strategy, or a focused next step.</p>
+            <div><p className="eyebrow">Nursing School Support</p><h3>Private tutoring for the semester you&apos;re in and the nurse you&apos;re becoming.</h3></div>
+            <p>For course content, NCLEX-style questions, clinical reasoning, prioritization, study strategies, exam preparation, remediation, and learning how to apply—not simply memorize—what you&apos;re learning.</p>
           </div>
+          <p className="service-context">Choose the level of support that fits your current semester. The free consultation is available if you&apos;re unsure where to start or are struggling across multiple courses.</p>
           <div className="package-grid">
-            {packages.map((item) => <article className="package-card" key={item.name}><p className="package-detail">{item.detail}</p><h4>{item.name}</h4><p className="package-price">{item.price}</p><p>{item.copy}</p><a className="button package-button" href={item.href}>Choose this option <span>→</span></a></article>)}
+            {nursingPackages.map((item) => <article className={`package-card${item.featured ? " package-card-featured" : ""}`} key={item.name}>{item.featured ? <span className="package-recommended">Recommended</span> : null}<p className="package-detail">{item.detail}</p><h4>{item.name}</h4><p className="package-price">{item.price}</p><p>{item.copy}</p>{item.benefits.length > 0 ? <ul>{item.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul> : null}<a className="button package-button" href={item.href}>Discuss this option <span>→</span></a></article>)}
           </div>
+          <p className="service-note">Semester Support sessions are valid for 4 months and can be used when you need them throughout the semester—you are not required to meet every week. Priority scheduling is intended for major exams and planning windows. Between-session tutoring and unlimited messaging are not included.</p>
         </div>
+
+        <aside className="consultation-callout">
+          <div><p className="eyebrow">Not sure which path fits?</p><h3>Let&apos;s figure out what support makes sense.</h3><p>The free consultation gives us time to talk through what you&apos;re struggling with, whether you need help across multiple courses, and which option fits your goals—so you don&apos;t have to guess.</p></div>
+          <a className="button" href={calendly.consultation}>Book a free consultation <span>→</span></a>
+        </aside>
 
         <div className="service-group coaching-group" id="nclex-coaching">
           <div className="service-group-heading">
