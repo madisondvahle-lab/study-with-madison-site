@@ -40,7 +40,7 @@ const flexibleNclexPackages: SessionPackage[] = [
 
 function SessionPackageCard({ item }: { item: SessionPackage }) {
   return <article className={`package-card${item.featured ? " package-card-featured" : ""}`} key={item.name}>
-    {item.featured ? <span className="package-recommended">Recommended</span> : null}
+    {item.featured ? <span className="package-recommended">Best value</span> : null}
     <p className="package-detail">{item.detail}</p>
     <h4>{item.name}</h4>
     <p className="package-price">{item.price}</p>
