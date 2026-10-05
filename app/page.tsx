@@ -185,6 +185,7 @@ export default function Home() {
             <p>For candidates who want a personalized study plan, consistent coaching, and progress support between sessions.</p>
           </div>
           <p className="service-context">Choose this pathway when you want a complete preparation structure, formal progress support, and the deeper coaching features described in the programs below.</p>
+          <p className="service-note">Momentum and Intensive include a private progress portal—a private place for your personalized roadmap, practice assignments, progress tracking, and coaching resources. Complete includes everything in Intensive.</p>
           <p className="coaching-context">Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
           <p className="coaching-progression" aria-label="Coaching package progression"><span>Start with a clear plan</span><span>Build steady momentum</span><span>Get full support</span></p>
           <div className="coaching-tier-grid">
