@@ -234,3 +234,24 @@
     margin-bottom: 14px;
   }
 }
+
+.session-options {
+  padding: clamp(64px, 9vw, 110px) clamp(24px, 8vw, 125px);
+  background: #fff7f1;
+  scroll-margin-top: 80px;
+}
+.session-options-head { max-width: 760px; margin-bottom: 36px; }
+.session-options-head > p:not(.eyebrow) { color: #527087; line-height: 1.7; font-size: 1.05rem; margin-top: 18px; }
+.session-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.session-card { display: flex; flex-direction: column; gap: 14px; background: #fff; border: 1px solid rgba(82, 112, 135, .2); border-radius: 18px; padding: 28px; }
+.session-card-featured { border-width: 2px; }
+.session-card ul { margin: 0 0 8px; padding-left: 1.2em; color: #527087; line-height: 1.6; flex: 1; }
+.session-card .button { align-self: flex-start; }
+.session-meta { font-weight: 700; letter-spacing: .04em; text-transform: uppercase; font-size: .8rem; margin: 0; }
+.session-pending { opacity: .6; cursor: not-allowed; }
+.session-footnote { margin-top: 24px; color: #527087; line-height: 1.6; }
+@media (max-width: 760px) {
+  .session-grid { grid-template-columns: 1fr; }
+  .session-card { padding: 22px; }
+  .session-card .button { align-self: stretch; text-align: center; justify-content: center; }
+}
