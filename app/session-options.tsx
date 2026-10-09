@@ -21,7 +21,7 @@ export function SessionOptions({ packagesHref = "#services" }: { packagesHref?: 
           <a className="button" href={FREE_CONSULTATION_URL}>Book free consultation <span>→</span></a>
         </article>
         <article className="session-card session-card-featured">
-          <p className="session-meta">60 minutes · $59</p>
+          <p className="session-meta">45 minutes · $40</p>
           <h3>NCLEX Strategy Session</h3>
           <ul>
             <li>Detailed review of available performance reports (CPR, CAT, readiness)</li>
@@ -29,7 +29,7 @@ export function SessionOptions({ packagesHref = "#services" }: { packagesHref?: 
             <li>Identification of potential performance patterns</li>
             <li>Individualized recommendations</li>
             <li>No tutoring commitment required</li>
-            <li>Eligible for a $59 tutoring package credit if you purchase within seven days</li>
+            <li>Eligible for a $40 tutoring package credit if you purchase within seven days</li>
           </ul>
           {STRATEGY_SESSION_URL ? (
             <a className="button" href={STRATEGY_SESSION_URL}>Book strategy session <span>→</span></a>

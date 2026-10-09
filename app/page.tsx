@@ -168,7 +168,7 @@ export default function Home() {
         </div>
 
         <aside className="consultation-callout">
-          <div><p className="eyebrow">NCLEX support starts with the right fit</p><h3>Not sure what you need?</h3><p>Not everyone needs ongoing tutoring. Compare the free 15-minute consultation with the $59 NCLEX Strategy Session to see which fits where you are right now.</p></div>
+          <div><p className="eyebrow">NCLEX support starts with the right fit</p><h3>Not sure what you need?</h3><p>Not everyone needs ongoing tutoring. Compare the free 15-minute consultation with the $40 NCLEX Strategy Session to see which fits where you are right now.</p></div>
           <a className="button" href="#choose-session">See How I Can Help <span>→</span></a>
         </aside>
 
