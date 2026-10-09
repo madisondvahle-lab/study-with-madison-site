@@ -1,5 +1,8 @@
+import { SessionOptions } from "./session-options";
+import { FREE_CONSULTATION_URL } from "../lib/booking";
+
 const calendly = {
-  consultation: "https://calendly.com/studywithmadisonrn/free-consultation",
+  consultation: FREE_CONSULTATION_URL,
   single: "https://calendly.com/studywithmadisonrn/60-min-single-session",
   three: "https://calendly.com/studywithmadisonrn/packages/2d195e26-b850-4682-a30f-14de5c8361f2",
   five: "https://calendly.com/studywithmadisonrn/packages/274033c2-9972-4d01-9b6d-c620ed5112b2",
@@ -80,7 +83,7 @@ export default function Home() {
           <a href="#about">About</a>
         </div>
         <a className="button" href={portal.signIn} style={{ padding: "12px 18px", fontSize: ".82rem", whiteSpace: "nowrap", marginLeft: "auto", flexShrink: 0 }}>Student Login <span>→</span></a>
-        <a className="button button-small" href={calendly.consultation}>Free consultation</a>
+        <a className="button button-small" href="#choose-session">Get Started</a>
       </nav>
 
       <section className="hero" id="top">
@@ -89,7 +92,7 @@ export default function Home() {
           <h1>Feel prepared for the exam <em>and</em> the nurse you&apos;re becoming.</h1>
           <p className="hero-text">One-on-one nursing tutoring for students who want clearer understanding, sharper clinical judgment, and real confidence in their next step.</p>
           <div className="hero-actions">
-            <a className="button" href={calendly.consultation}>Book your free consultation <span>→</span></a>
+            <a className="button" href="#choose-session">Explore Your Options <span>→</span></a>
             <a className="text-link" href="#services">Explore tutoring options <span>↓</span></a>
           </div>
           <div className="trust-row" aria-label="Credentials">
@@ -118,18 +121,20 @@ export default function Home() {
       <section className="section how" id="how-it-works">
         <div className="section-heading"><p className="eyebrow">A calmer way to get support</p><h2>Know what to study.<br />Know <em>why</em> it matters.</h2></div>
         <div className="steps">
-          <article><span className="step-number">01</span><h3>Start with a free consult</h3><p>Tell me what feels hard, what you&apos;re preparing for, and what kind of support would help most.</p></article>
+          <article><span className="step-number">01</span><h3>Start with a conversation</h3><p>Tell me what feels hard, what you&apos;re preparing for, and what kind of support would help most.</p></article>
           <article><span className="step-number">02</span><h3>Get a plan made for you</h3><p>We focus on your real courses, your exam timeline, and the gaps that deserve your attention.</p></article>
           <article><span className="step-number">03</span><h3>Build confidence, session by session</h3><p>Learn to break down questions, connect concepts, and trust your clinical thinking.</p></article>
         </div>
       </section>
+
+      <SessionOptions />
 
       <section className="section services" id="services">
         <div className="section-heading service-heading">
           <p className="eyebrow">Ways to work together</p>
           <h2>Find the support<br />that moves you forward.</h2>
           <p className="section-intro">Whether you need help with one hard topic or want a complete NCLEX plan, you have a clear next step.</p>
-          <a className="text-link" href={calendly.consultation}>Book a free consultation <span>→</span></a>
+          <a className="text-link" href="#choose-session">Find the Right NCLEX Support <span>→</span></a>
         </div>
 
         <div className="support-paths" aria-label="Choose your support path">
@@ -163,8 +168,8 @@ export default function Home() {
         </div>
 
         <aside className="consultation-callout">
-          <div><p className="eyebrow">NCLEX support starts with the right fit</p><h3>Not sure what you need?</h3><p>Start with a free consultation. We&apos;ll look at your previous attempts, CPR, readiness or CAT results, current question-bank performance, timeline, and goals to determine what level of support actually makes sense—especially if you are retaking the NCLEX.</p></div>
-          <a className="button" href={calendly.consultation}>Book a free consultation <span>→</span></a>
+          <div><p className="eyebrow">NCLEX support starts with the right fit</p><h3>Not sure what you need?</h3><p>Not everyone needs ongoing tutoring. Compare the free 15-minute consultation with the $40 NCLEX Strategy Session to see which fits where you are right now.</p></div>
+          <a className="button" href="#choose-session">See How I Can Help <span>→</span></a>
         </aside>
 
         <div className="service-group coaching-group" id="nclex-coaching">
@@ -268,9 +273,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="final-cta"><p className="eyebrow light">Your next step can be simple</p><h2>Let&apos;s make a plan<br />that feels doable.</h2><p>Your free consultation is a no-pressure conversation about what you need and how I can help.</p><a className="button button-light" href={calendly.consultation}>Book your free consultation <span>→</span></a></section>
+      <section className="final-cta"><p className="eyebrow light">Your next step can be simple</p><h2>Let&apos;s make a plan<br />that feels doable.</h2><p>Not everyone needs ongoing tutoring. Sometimes you just need help figuring out what&apos;s keeping you from making progress. Pick the option that fits.</p><a className="button button-light" href="#choose-session">Get Started <span>→</span></a></section>
 
-      <footer><a className="brand" href="#top"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href={calendly.consultation}>Book a free consultation →</a></footer>
+      <footer><a className="brand" href="#top"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href="#choose-session">Explore your options →</a></footer>
     </main>
   );
 }
