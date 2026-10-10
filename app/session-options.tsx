@@ -39,6 +39,7 @@ export function SessionOptions({ packagesHref = "#services" }: { packagesHref?: 
         </article>
       </div>
       <p className="session-footnote">The free consultation is a brief introduction, not a performance review or study-planning session. <a className="text-link" href={packagesHref}>View tutoring packages <span>↓</span></a></p>
+      <p className="session-footnote">Strategy Session credit: if you purchase a tutoring package within seven days of your session, the $40 session fee is refunded to your original payment method after your package purchase. Just email support@studywithmadison.com with your package confirmation.</p>
     </section>
   );
 }
