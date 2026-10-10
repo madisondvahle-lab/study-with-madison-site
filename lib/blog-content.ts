@@ -3,8 +3,8 @@ export function renderBlogContent(content: string): string {
     return formatRichText(sanitizeRichText(content));
   }
 
-  return content
-    .split(/\n{2,}/)
+  const blocks = content.split(/\n{2,}/);
+  return blocks
     .map((block, index) => {
       const lines = block.trim().split("\n");
       if (lines.every((line) => /^> /.test(line))) {
@@ -14,6 +14,15 @@ export function renderBlogContent(content: string): string {
       if (lines.every((line) => /^- /.test(line))) {
         return `<ul>${lines.map((line) => `<li>${formatInline(line.slice(2))}</li>`).join("")}</ul>`;
       }
+
+      if (lines.every((line) => /^\d+\. /.test(line))) {
+        return `<ol>${lines.map((line) => `<li>${formatInline(line.replace(/^\d+\. /, ""))}</li>`).join("")}</ol>`;
+      }
+
+      if (isMarkdownTable(lines)) {
+        return renderMarkdownTable(lines);
+      }
+
       const heading = lines.join(" ").match(/^(#{1,3}) (.+)$/);
       if (heading) {
         return `<h${heading[1].length}>${formatInline(heading[2])}</h${heading[1].length}>`;
@@ -22,6 +31,33 @@ export function renderBlogContent(content: string): string {
       return `<p${className}>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
     })
     .join("");
+}
+
+function isMarkdownTable(lines: string[]): boolean {
+  const separator = lines[1]?.trim().replace(/^\|/, "").replace(/\|$/, "");
+  return Boolean(
+    lines.length > 2 &&
+      lines[0].includes("|") &&
+      separator &&
+      separator.split("|").every((cell) => /^:?-{3,}:?$/.test(cell.trim())),
+  );
+}
+
+function renderMarkdownTable(lines: string[]): string {
+  const rows = lines.map((line) =>
+    line
+      .trim()
+      .replace(/^\|/, "")
+      .replace(/\|$/, "")
+      .split("|")
+      .map((cell) => cell.trim()),
+  );
+  const [headers, , ...body] = rows;
+  return `<div class="article-table-wrap" role="region" aria-label="Comparison table" tabindex="0"><table><thead><tr>${headers
+    .map((cell) => `<th scope="col">${formatInline(cell)}</th>`)
+    .join("")}</tr></thead><tbody>${body
+    .map((row) => `<tr>${row.map((cell) => `<td>${formatInline(cell)}</td>`).join("")}</tr>`)
+    .join("")}</tbody></table></div>`;
 }
 
 function formatRichText(html: string): string {
@@ -51,7 +87,11 @@ export function sanitizeRichText(html: string): string {
 
 function formatInline(value: string): string {
   return escapeHtml(value)
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/(?!\/))[^\s)]+)\)/gi, (_match, label: string, href: string) => {
+      const external = /^https?:\/\//i.test(href);
+      const attributes = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}"${attributes}>${label}</a>`;
+    })
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/\*([^*]+)\*/g, "<em>$1</em>");
 }
