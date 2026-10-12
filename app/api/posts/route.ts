@@ -45,7 +45,7 @@ export async function POST(request: Request): Promise<Response> {
     .prepare(
       "INSERT INTO blog_posts (id, slug, title, description, content, author, status, published_at, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     )
-    .bind(id, slug, title, description, content, "Madison, RN", status, status === "published" ? now : null, now, now)
+    .bind(id, slug, title, description, content, "Madison", status, status === "published" ? now : null, now, now)
     .run();
 
   return Response.json({ id, slug }, { status: 201 });

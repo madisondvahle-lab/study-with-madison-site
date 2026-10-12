@@ -4,7 +4,7 @@ import { CopyButton } from "@/app/copy-prompt";
 import { promptCategories } from "@/lib/prompt-library";
 
 export const metadata: Metadata = {
-  title: "NCLEX AI Study Prompt Library | Study With Madison, RN",
+  title: "NCLEX AI Study Prompt Library | Study With Madison",
   description:
     "Free AI prompts written by an RN tutor to help you strengthen clinical judgment, review missed questions, and plan your NCLEX study time.",
   alternates: { canonical: "/blog/prompts" },
