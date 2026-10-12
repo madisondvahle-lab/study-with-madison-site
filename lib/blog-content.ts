@@ -4,6 +4,7 @@ export function renderBlogContent(content: string): string {
   }
 
   const blocks = content.split(/\n{2,}/);
+  const headingCounts = new Map<string, number>();
   return blocks
     .map((block, index) => {
       const lines = block.trim().split("\n");
@@ -25,7 +26,8 @@ export function renderBlogContent(content: string): string {
 
       const heading = lines.join(" ").match(/^(#{1,3}) (.+)$/);
       if (heading) {
-        return `<h${heading[1].length}>${formatInline(heading[2])}</h${heading[1].length}>`;
+        const id = uniqueHeadingId(heading[2], headingCounts);
+        return `<h${heading[1].length} id="${id}">${formatInline(heading[2])}</h${heading[1].length}>`;
       }
       const className = index === 0 ? ' class="article-lead"' : "";
       return `<p${className}>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
@@ -61,6 +63,7 @@ function renderMarkdownTable(lines: string[]): string {
 }
 
 function formatRichText(html: string): string {
+  const headingCounts = new Map<string, number>();
   let formatted = html.replace(/^(?:<br>|\s)+/gi, "").replace(
     /<p>((?:Step|Part)\s+\d+\s*:[\s\S]*?)<\/p>/gi,
     "<h2>$1</h2>",
@@ -68,7 +71,30 @@ function formatRichText(html: string): string {
   if (formatted.startsWith("<p>")) {
     formatted = formatted.replace(/^<p>/, '<p class="article-lead">');
   }
-  return formatted;
+  return formatted.replace(/<h([23])>([\s\S]*?)<\/h\1>/gi, (_match, level: string, text: string) => {
+    const id = uniqueHeadingId(text.replace(/<[^>]*>/g, ""), headingCounts);
+    return `<h${level} id="${id}">${text}</h${level}>`;
+  });
+}
+
+function uniqueHeadingId(value: string, counts: Map<string, number>): string {
+  const base = headingId(value);
+  const count = (counts.get(base) ?? 0) + 1;
+  counts.set(base, count);
+  return count === 1 ? base : `${base}-${count}`;
+}
+
+function headingId(value: string): string {
+  const normalized = value
+    .replace(/<[^>]*>/g, "")
+    .replace(/&amp;/gi, " and ")
+    .replace(/&[^;]+;/g, " ")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return normalized || "article-section";
 }
 
 export function sanitizeRichText(html: string): string {
@@ -89,7 +115,11 @@ function formatInline(value: string): string {
   return escapeHtml(value)
     .replace(/\[([^\]]+)\]\(((?:https?:\/\/|\/(?!\/))[^\s)]+)\)/gi, (_match, label: string, href: string) => {
       const external = /^https?:\/\//i.test(href);
-      const attributes = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      const attributes = external
+        ? ' target="_blank" rel="noopener noreferrer"'
+        : href.toLowerCase().endsWith(".pdf")
+          ? " download"
+          : "";
       return `<a href="${href}"${attributes}>${label}</a>`;
     })
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")

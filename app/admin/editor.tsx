@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/app/brand-logo";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { renderBlogContent } from "@/lib/blog-content";
 
@@ -66,7 +67,7 @@ export default function AdminEditor() {
   }
 
   return <main className="admin-shell">
-    <nav className="nav"><a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><a href="/blog">View blog</a></nav>
+    <nav className="nav"><BrandLogo /><a href="/blog">View blog</a></nav>
     <section className="admin-panel">
       <p className="eyebrow">Private editor</p><h1>Write a blog post</h1><p>Cloudflare Access protects this page and the post API.</p>
       <form onSubmit={save}>

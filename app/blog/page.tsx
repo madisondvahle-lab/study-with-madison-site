@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BrandLogo } from "@/app/brand-logo";
 import { listPublishedPosts } from "@/lib/blog";
 import { legacyPost } from "@/lib/legacy-post";
 
@@ -26,7 +27,7 @@ export default async function BlogPage() {
 
   return <main>
     <nav className="nav" aria-label="Primary navigation">
-      <a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a>
+      <BrandLogo />
       <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/#about">About</a></div>
       <a className="button button-small" href="/#choose-session">Get Started</a>
     </nav>
@@ -41,6 +42,6 @@ export default async function BlogPage() {
       </article>)}
     </section>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><a className="brand" href="/"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }
