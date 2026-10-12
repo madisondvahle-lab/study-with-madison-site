@@ -1,3 +1,4 @@
+import { BrandLogo } from "./brand-logo";
 import { SessionOptions } from "./session-options";
 import { FREE_CONSULTATION_URL } from "../lib/booking";
 
@@ -73,7 +74,7 @@ export default function Home() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <nav className="nav" aria-label="Primary navigation" style={{ flexWrap: "wrap" }}>
-        <a className="brand" href="#top" aria-label="Study With Madison home"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a>
+        <BrandLogo href="#top" />
         <div className="nav-links">
           <a href="#how-it-works">How it works</a>
           <a href="#services">Services</a>
@@ -275,7 +276,7 @@ export default function Home() {
 
       <section className="final-cta"><p className="eyebrow light">Your next step can be simple</p><h2>Let&apos;s make a plan<br />that feels doable.</h2><p>Not everyone needs ongoing tutoring. Sometimes you just need help figuring out what&apos;s keeping you from making progress. Pick the option that fits.</p><a className="button button-light" href="#choose-session">Get Started <span>→</span></a></section>
 
-      <footer><a className="brand" href="#top"><span>Study With</span> Madison<span className="brand-rn">, RN</span></a><p>Personalized nursing tutoring, online via Zoom.</p><a href="#choose-session">Explore your options →</a></footer>
+      <footer><BrandLogo href="#top" /><p>Personalized nursing tutoring, online via Zoom.</p><a href="#choose-session">Explore your options →</a></footer>
     </main>
   );
 }

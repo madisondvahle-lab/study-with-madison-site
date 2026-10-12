@@ -171,25 +171,13 @@ Choose one or two areas to investigate first. Review unfamiliar questions in tho
 
 Use the [2026 test plan for your exam](https://www.nclex.com/test-plans.page) to see the activities and content included within a category. If a label feels vague, this is a better next step than guessing what it means from its name.
 
-## Copy and complete this CPR worksheet
+## Get the printable CPR worksheet
 
-Complete one entry for each area you decide to investigate. Leave the performance label exactly as it appears on your report.
+Download and print the one-page worksheet to plan one area at a time. Leave the performance label exactly as it appears on your report.
 
-**Test date and exam type:** ______________________________
+[Download the printable CPR study-planning worksheet (PDF)](/downloads/cpr-study-planning-worksheet.pdf)
 
-**CPR area and performance label:** ______________________________
-
-**What I noticed in unfamiliar practice questions:** ______________________________
-
-**One example of my reasoning error in my own words:** ______________________________
-
-**What I need to review or practice:** ______________________________
-
-**My next study task and the time I will set aside:** ______________________________
-
-**How I will check this again with fresh questions:** ______________________________
-
-**Review date and what changed:** ______________________________
+Use one copy for each area you decide to investigate. The worksheet gives you room to connect your report label with evidence from unfamiliar practice questions, a specific next task, and a follow-up date.
 
 Here is a completed teaching example:
 
