@@ -1,5 +1,8 @@
 import { env } from "cloudflare:workers";
+import { aiStudyPosts } from "./ai-study-posts";
 import { nclexBlogPosts } from "./nclex-blog-posts";
+
+const builtInPosts = [...nclexBlogPosts, ...aiStudyPosts];
 export { renderBlogContent, sanitizeRichText } from "./blog-content";
 
 export type BlogPost = {
@@ -24,7 +27,7 @@ export async function listPublishedPosts(): Promise<BlogPost[]> {
   const result = await getDb()
     .prepare("SELECT * FROM blog_posts ORDER BY published_at DESC, created_at DESC, id ASC")
     .all<BlogPost>();
-  const postsBySlug = new Map(nclexBlogPosts.map((post) => [post.slug, post]));
+  const postsBySlug = new Map(builtInPosts.map((post) => [post.slug, post]));
   for (const post of result.results) {
     if (post.status === "published") postsBySlug.set(post.slug, post);
     else postsBySlug.delete(post.slug);
@@ -42,5 +45,5 @@ export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
     .bind(slug)
     .first<BlogPost>();
   if (storedPost) return storedPost.status === "published" ? storedPost : null;
-  return nclexBlogPosts.find((post) => post.slug === slug) ?? null;
+  return builtInPosts.find((post) => post.slug === slug) ?? null;
 }

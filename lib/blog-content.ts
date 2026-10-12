@@ -3,11 +3,21 @@ export function renderBlogContent(content: string): string {
     return formatRichText(sanitizeRichText(content));
   }
 
-  const blocks = content.split(/\n{2,}/);
+  const prompts: { label: string; weak: boolean; body: string }[] = [];
+  const source = content.replace(
+    /^:::prompt(-weak)?(?: ([^\n]+))?\n([\s\S]*?)\n:::$/gm,
+    (_match, weak: string | undefined, label: string | undefined, body: string) => {
+      prompts.push({ weak: Boolean(weak), label: label ?? (weak ? "Instead of" : "Try this prompt"), body });
+      return `\n\n@@PROMPT${prompts.length - 1}@@\n\n`;
+    },
+  );
+  const blocks = source.split(/\n{2,}/);
   const headingCounts = new Map<string, number>();
   return blocks
     .map((block, index) => {
       const lines = block.trim().split("\n");
+      const promptIndex = block.trim().match(/^@@PROMPT(\d+)@@$/)?.[1];
+      if (promptIndex !== undefined) return renderPromptBox(prompts[Number(promptIndex)]);
       if (lines.every((line) => /^> /.test(line))) {
         return `<blockquote>${formatInline(lines.map((line) => line.slice(2)).join("\n")).replace(/\n/g, "<br />")}</blockquote>`;
       }
@@ -33,6 +43,13 @@ export function renderBlogContent(content: string): string {
       return `<p${className}>${formatInline(lines.join("\n")).replace(/\n/g, "<br />")}</p>`;
     })
     .join("");
+}
+
+function renderPromptBox({ label, weak, body }: { label: string; weak: boolean; body: string }): string {
+  const button = weak
+    ? ""
+    : '<button type="button" class="prompt-copy" data-copy-prompt>Copy prompt</button>';
+  return `<div class="prompt-box${weak ? " prompt-box-weak" : ""}"><div class="prompt-box-head"><span>${escapeHtml(label)}</span>${button}</div><pre class="prompt-box-text">${escapeHtml(body)}</pre></div>`;
 }
 
 function isMarkdownTable(lines: string[]): boolean {
