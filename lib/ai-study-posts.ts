@@ -133,7 +133,7 @@ It is also easy to use AI to avoid the hard part. If every study session ends wi
 
 ## Take it further
 
-Copy more ready-made prompts from the free [NCLEX AI Study Prompt Library](/prompts). If you keep running into questions where you are [stuck between two answers](/blog/nclex-stuck-between-two-answers), that guide pairs well with strategy #2 above.
+Copy more ready-made prompts from the free [NCLEX AI Study Prompt Library](/blog/prompts). If you keep running into questions where you are [stuck between two answers](/blog/nclex-stuck-between-two-answers), that guide pairs well with strategy #2 above.
 
 ${TAKE_IT_FURTHER_CTA}`,
     publishedAt,
@@ -205,7 +205,7 @@ If you have a pattern you cannot untangle after a week or two of honest review, 
 
 ## Take it further
 
-Grab more review-focused prompts from the [NCLEX AI Study Prompt Library](/prompts). If you are working from a CPR after an unsuccessful attempt, read [how to read your NCLEX CPR](/blog/how-to-read-nclex-cpr-report) and use it to decide which areas to review first.
+Grab more review-focused prompts from the [NCLEX AI Study Prompt Library](/blog/prompts). If you are working from a CPR after an unsuccessful attempt, read [how to read your NCLEX CPR](/blog/how-to-read-nclex-cpr-report) and use it to decide which areas to review first.
 
 ${TAKE_IT_FURTHER_CTA}`,
     publishedAt + 1,
@@ -281,7 +281,7 @@ Also remember that [failing at 85 questions](/blog/failed-nclex-at-85-questions)
 
 ## Take it further
 
-More retake-focused prompts are in the free [NCLEX AI Study Prompt Library](/prompts). If you would like help turning your report and practice results into a plan, a strategy session can help.
+More retake-focused prompts are in the free [NCLEX AI Study Prompt Library](/blog/prompts). If you would like help turning your report and practice results into a plan, a strategy session can help.
 
 ${TAKE_IT_FURTHER_CTA}`,
     publishedAt + 2,
