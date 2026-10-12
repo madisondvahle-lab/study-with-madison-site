@@ -153,3 +153,26 @@ footer .brand-logo img { width:146px; }
   .article-content a { color:#111; }
   .article-content a[href="/downloads/cpr-study-planning-worksheet.pdf"] { border:1px solid #333; background:#fff; color:#111; }
 }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+.prompt-box { margin:26px 0; border:1px solid var(--line); border-top:3px solid var(--rose); background:var(--cream); }
+.prompt-box-head { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 16px; border-bottom:1px solid var(--line); background:#fff; color:var(--plum); font-size:.78rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; }
+.prompt-box-text { margin:0; padding:18px 18px 20px; max-width:none; color:var(--ink); font:inherit; font-size:1rem; line-height:1.7; white-space:pre-wrap; overflow-wrap:anywhere; }
+.prompt-box-weak { border-top-color:var(--line); background:#fff; }
+.prompt-box-weak .prompt-box-text { color:#5b6b78; }
+.prompt-copy { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; border:0; background:var(--ink); color:#fff; font:inherit; font-size:.8rem; font-weight:700; letter-spacing:.04em; text-transform:none; cursor:pointer; }
+.prompt-copy:hover { background:var(--plum); }
+.prompt-copy:focus-visible { outline:3px solid var(--rose); outline-offset:3px; }
+.article-content blockquote { max-width:70ch; }
+.prompt-library { width:min(1040px,calc(100% - 40px)); margin:auto; padding:clamp(50px,7vw,90px) 0; }
+.prompt-note { margin:0 0 28px; padding:18px 22px; border-left:3px solid var(--rose); background:var(--cream); color:var(--ink); line-height:1.7; }
+.prompt-note a, .prompt-more a { color:var(--ink); text-underline-offset:3px; }
+.prompt-jump { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 20px; }
+.prompt-jump a { padding:10px 14px; border:1px solid var(--line); color:var(--ink); text-decoration:none; font-weight:600; font-size:.92rem; }
+.prompt-jump a:hover { border-color:var(--rose); }
+.prompt-jump a:focus-visible { outline:3px solid var(--rose); outline-offset:3px; }
+.prompt-compare h2, .prompt-category h2 { margin:40px 0 6px; text-wrap:balance; }
+.prompt-category { scroll-margin-top:24px; }
+.prompt-category > p { margin:0 0 6px; max-width:62ch; line-height:1.7; }
+.prompt-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr)); gap:0 22px; }
+.prompt-more { margin-top:48px; line-height:1.7; }
+@media(max-width:600px) { .prompt-box-head { flex-wrap:wrap; } }
