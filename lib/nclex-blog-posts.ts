@@ -8,6 +8,7 @@ function createPost(
   title: string,
   description: string,
   content: string,
+  date = publishedAt,
 ): BlogPost {
   return {
     id,
@@ -17,9 +18,9 @@ function createPost(
     content,
     author: "Madison, RN",
     status: "published",
-    publishedAt,
-    createdAt: publishedAt,
-    updatedAt: publishedAt,
+    publishedAt: date,
+    createdAt: date,
+    updatedAt: date,
   };
 }
 
@@ -478,5 +479,292 @@ If you do not yet know what is going wrong, start with [the study-pattern audit]
 Choose a resource you can learn from consistently. Then give yourself enough time to use its explanations, not just finish its questions.
 
 If you want help deciding what your preparation needs, book the [$40, 45-minute NCLEX Strategy Session](https://calendly.com/studywithmadisonrn/nclex-strategy-consult-session) for individualized review and recommendations. If you are exploring tutoring and want to meet me first, choose the [free 15-minute introductory consultation](https://calendly.com/studywithmadisonrn/free-consultation). The introductory call does not include a detailed performance or resource review.`,
+  ),
+  createPost(
+    "nclex-series-06",
+    "using-the-nclex-test-plan",
+    "How to Use the NCLEX Test Plan to Focus Your Studying",
+    "Learn how to turn the official NCLEX test plan into a focused study map without treating it like a prediction of your exam questions.",
+    `The NCLEX test plan can make studying feel more organized, but it is easy to ask it to do something it cannot: tell you exactly what will be on your exam.
+
+Use it as a map of the broad areas and entry-level responsibilities the exam covers. Then use your own practice work to decide what to review next.
+
+## Find the test plan for your exam
+
+Start with the [official NCLEX test plans](https://www.nclex.com/test-plans.page) and choose the RN or PN plan that applies to you. Check the edition and effective dates for your exam. The plans are updated periodically, so an old copy from a study group or saved download may not be the right one.
+
+The plan explains the exam's content framework and includes information about exam administration and clinical judgment. It is useful for understanding the scope of the exam. It is not a list of questions, a guarantee that one topic will appear, or a personal score report.
+
+## Turn broad categories into specific questions
+
+Broad headings can feel overwhelming. Instead of adding every category to a giant checklist, connect a heading to what you have actually noticed while answering questions.
+
+For each area, ask:
+
+- Can I explain the core concepts without looking at my notes?
+- Can I recognize which details in a scenario matter?
+- Can I explain why one response fits the situation better than another?
+- Have I practiced with unfamiliar questions in this area, or only reviewed familiar examples?
+
+Your answers are more useful than highlighting a whole section of the test plan. A broad category might contain several different skills; the plan alone cannot tell you which one needs attention.
+
+## Build a small study map
+
+Choose one or two areas to investigate at a time. For each one, write down:
+
+- **Test-plan area:** Use the wording from the current plan.
+- **Practice evidence:** Note a repeated difficulty or a question you could not explain.
+- **Next study action:** Make it specific enough to do in one session.
+- **Check-in:** Decide when you will try fresh questions and review whether your explanation has improved.
+
+For example, “study safety” is too broad to guide a session. “Review the safety principle behind these two missed questions, then explain how it applies to a new scenario” gives you a clearer task.
+
+If you have a Candidate Performance Report, use it as one source of information—not a complete diagnosis. My guide to [reading your NCLEX CPR](/blog/how-to-read-nclex-cpr-report) explains what the report can and cannot tell you.
+
+## Try this 15-minute exercise
+
+1. Open the official test plan for your exam.
+2. Pick one category you want to understand better.
+3. Find three recent practice questions that relate to it, including questions you guessed on.
+4. Write what each question asked you to decide and what evidence should guide that decision.
+5. Choose one focused review task and a day to revisit it with fresh questions.
+
+If the questions point to different problems, do not force them into one label. Gather more examples before changing your entire study plan.
+
+## What the test plan cannot tell you
+
+The test plan does not predict your individual exam, tell you how many questions you will receive about a topic, or establish that you are ready to test. Avoid turning category ranges into a promise about what you will see.
+
+Pair the plan with practice that helps you explain your decisions. If you are studying after an unsuccessful attempt, compare those observations with your CPR and review of [why studying harder may not be enough](/blog/why-do-i-keep-failing-the-nclex).
+
+For individualized help connecting a test plan, practice work, and your next steps, book the [$40, 45-minute NCLEX Strategy Session](https://calendly.com/studywithmadisonrn/nclex-strategy-consult-session). The [free 15-minute introductory consultation](https://calendly.com/studywithmadisonrn/free-consultation) is for meeting me and discussing tutoring options; it does not include an in-depth performance review.`,
+    Date.UTC(2026, 9, 12),
+  ),
+  createPost(
+    "nclex-series-07",
+    "ngn-case-study-step-by-step",
+    "How to Work Through an NGN Case Study, Step by Step",
+    "Use the six clinical-judgment functions to organize your thinking through an NGN case study, with a simple original example.",
+    `NGN case studies can feel like six separate questions arriving one after another. It helps to notice how each question asks you to think about the information in the case.
+
+The [NCLEX Clinical Judgment Measurement Model](https://www.nclex.com/clinical-judgment-measurement-model.page) describes six functions: recognize cues, analyze cues, prioritize hypotheses, generate solutions, take action, and evaluate outcomes. Use them as a way to organize your reasoning—not as a shortcut that tells you which answer to select.
+
+## Start with the information in front of you
+
+Consider this original practice scenario: A client who was breathing comfortably earlier now reports worsening shortness of breath. You also notice increased work of breathing and a downward trend in oxygen saturation.
+
+The point is not to guess what the next screen will ask. It is to use each new piece of information carefully and answer the task that is actually on the screen.
+
+## 1. Recognize cues
+
+Identify the details that may matter to the client's current condition. In this example, the change from earlier, the client's report, the increased work of breathing, and the downward trend are all worth noticing.
+
+Separate observed findings from assumptions. “The client reports worse shortness of breath” is an observation. “The client is anxious” may be an interpretation that needs more evidence.
+
+## 2. Analyze cues
+
+Ask what the findings may mean together. Compare them with the earlier information, look for a pattern, and consider what additional assessment could clarify the situation.
+
+Do not treat one number or phrase in isolation when the scenario gives you a trend. At the same time, do not invent history or symptoms that the case has not provided.
+
+## 3. Prioritize hypotheses
+
+Consider which possible concern needs attention first based on the evidence and the client's immediate risk. A change in breathing deserves prompt attention; the case details and the exact question determine the next decision.
+
+This is not about naming every possible diagnosis. Focus on the explanation that best fits the cues you were given.
+
+## 4. Generate solutions
+
+Think about what responses could address the prioritized concern. Compare each option with the client's current findings, the question's wording, and the nurse's role in the situation.
+
+If an answer does not respond to the immediate concern, or assumes information the case has not supplied, pause before choosing it.
+
+## 5. Take action
+
+Select the response that best fits the client's needs and the information available. In real practice, follow the appropriate clinical setting's procedures and scope of practice. A practice example is not a substitute for clinical supervision or local policy.
+
+## 6. Evaluate outcomes
+
+Look for new information showing whether the client's condition improved, stayed the same, or worsened. Compare it with the earlier cues and decide whether the plan needs to change.
+
+Clinical judgment is not just choosing an action; it includes noticing what happens afterward. The [current NCLEX test plan](https://www.nclex.com/test-plans.page) provides the official exam framework and examples. For a study-planning approach using that document, see [how to use the NCLEX test plan](/blog/using-the-nclex-test-plan).
+
+## A quick way to practice
+
+After a case study, write one short sentence for each function:
+
+- **Cues:** Which details mattered?
+- **Analysis:** What did those details suggest together?
+- **Priority:** What concern needed attention first, and why?
+- **Solutions:** Which responses addressed that concern?
+- **Action:** Why did the selected response fit the question?
+- **Evaluation:** What finding would tell you whether the response helped?
+
+If you miss an item, use the rationale to identify the specific step in your thinking that needs more work. “I need to practice clinical judgment” is a start; “I noticed the trend but did not use it to compare the options” gives you a more useful next task.
+
+The goal is not to memorize six labels and force every question into a rigid script. The goal is to explain how the case information supports your decision.
+
+For individualized help reviewing your question practice, book the [$40, 45-minute NCLEX Strategy Session](https://calendly.com/studywithmadisonrn/nclex-strategy-consult-session). The [free 15-minute introductory consultation](https://calendly.com/studywithmadisonrn/free-consultation) is for meeting me and discussing tutoring options.`,
+    Date.UTC(2026, 9, 12, 0, 1),
+  ),
+  createPost(
+    "nclex-series-08",
+    "nclex-flexible-weekly-study-plan",
+    "How Long Should You Study for the NCLEX? Build a Flexible Weekly Plan",
+    "There is no one-size-fits-all NCLEX study timeline. Use this flexible weekly structure to turn your goals and available time into focused practice.",
+    `“How many weeks should I study for the NCLEX?” is a reasonable question, but there is no single number that fits every candidate.
+
+Your schedule depends on your responsibilities, the time you have available, what you already understand, and what your practice shows you need to work on. A useful plan gives you a manageable next step and a way to check whether it is helping.
+
+## Start with your real calendar
+
+Before choosing a test date or filling every evening with study, write down the time you can realistically protect in a typical week. Include class, work, caregiving, sleep, meals, and time to reset.
+
+A plan you can repeat is more useful than an ideal schedule that leaves no room for a difficult week. Your actual study time may be spread across short sessions rather than long days.
+
+## Give each study session a purpose
+
+Try using a few different kinds of work across the week:
+
+- **Recall:** Explain a concept from memory before opening your notes.
+- **Practice:** Answer a manageable set of unfamiliar questions without rushing.
+- **Review:** Explain why the best answer fits the task and why your choice did not.
+- **Revisit:** Return to a previous topic and see what you can now explain without help.
+- **Rest:** Leave space between sessions so your plan remains sustainable.
+
+You do not have to use every activity every day. Choose the mix that fits your week and the specific skill you are practicing.
+
+## Use this flexible weekly template
+
+Pick a few study blocks that fit your calendar. For each block, write a task you can finish:
+
+- **Session 1:** Review one concept or test-plan area using active recall.
+- **Session 2:** Answer a small set of questions related to that goal.
+- **Session 3:** Review your reasoning, including correct answers you guessed.
+- **Session 4:** Try fresh questions or explain the concept again without notes.
+- **End-of-week check-in:** What became clearer? What still needs more evidence?
+
+If you have fewer blocks, combine the practice and review steps. If you have more time, repeat the cycle with another focused area rather than adding hours without a purpose.
+
+## Make the plan specific to your situation
+
+For a first attempt, your plan might focus on building a steady routine and identifying which areas need more practice. If you are preparing to retake the NCLEX, compare your CPR with recent practice work before deciding what to change. The report is one input, not a complete explanation; see [how to read your CPR](/blog/how-to-read-nclex-cpr-report).
+
+If you keep putting in hours but cannot explain why you miss questions, start with the question-review exercise in [why you may keep failing despite studying](/blog/why-do-i-keep-failing-the-nclex).
+
+## Check the plan, not just the hours
+
+At the end of the week, ask:
+
+- Can I explain something now that I could not explain before?
+- Did I practice with unfamiliar questions?
+- Can I identify what information guided my decisions?
+- Is the current schedule realistic enough to repeat?
+
+These are reflection prompts, not a readiness test or a guarantee of an exam result. If the plan is not working, change one part and observe what happens rather than rebuilding everything overnight.
+
+If you have an exam appointment, check the rules and deadlines that apply to your authorization before moving it. A study calendar should fit your real obligations and the official requirements—not pressure you into a particular timeline.
+
+For support building a plan around your own practice and goals, book the [$40, 45-minute NCLEX Strategy Session](https://calendly.com/studywithmadisonrn/nclex-strategy-consult-session). The [free 15-minute introductory consultation](https://calendly.com/studywithmadisonrn/free-consultation) is for discussing tutoring options and whether we are a fit.`,
+    Date.UTC(2026, 9, 12, 0, 2),
+  ),
+  createPost(
+    "nclex-series-09",
+    "nclex-registration-scheduling-checklist",
+    "NCLEX Registration and Scheduling: A Candidate Checklist",
+    "Understand the general NCLEX registration steps, what to verify with your nursing regulator, and what to check before scheduling an exam.",
+    `NCLEX registration involves more than one organization, so it can be hard to tell which step comes next. Your nursing regulatory body (NRB) determines your eligibility and requirements; Pearson VUE handles exam registration and scheduling.
+
+The details depend on where you are applying for licensure. Use this checklist to organize the general process, then confirm every requirement with the regulator where you intend to practice.
+
+## 1. Identify your nursing regulator
+
+Start with the NRB for the jurisdiction where you are seeking licensure. Review its application instructions, education requirements, fees, deadlines, and any additional steps that apply to you.
+
+The [official NCLEX registration page](https://www.nclex.com/register.page) directs candidates to contact the relevant NRB for licensure and registration requirements. Do not assume that a classmate's process—or a checklist written for another state or country—also applies to you.
+
+## 2. Complete the regulator's application steps
+
+Submit the application and supporting information requested by your regulator. Keep copies of confirmations and note any outstanding items. The regulator, not a tutoring company or question bank, determines when you meet its requirements.
+
+If you are unsure whether a transcript, identity document, background check, or other item has been received, contact the regulator directly using its official contact information.
+
+## 3. Register for the exam with Pearson VUE
+
+Follow the current [NCLEX registration instructions](https://www.nclex.com/register.page) and Pearson VUE directions. Registration with Pearson VUE and approval from your regulator are separate steps; completing one does not automatically mean the other is finished.
+
+Use your legal and identifying information carefully. Before exam day, confirm that your registration details meet the current identification requirements in the [NCLEX Candidate Bulletin](https://www.nclex.com/files/2026_NCLEX_Candidate_Bulletin_English.pdf).
+
+## 4. Watch for your Authorization to Test
+
+After the required steps are complete, watch the email account associated with your registration for updates and your Authorization to Test (ATT). Check your spam folder and keep your contact information current.
+
+Your ATT includes an authorization period. The length and applicable rules can vary, so read the dates on your own ATT rather than relying on a general timeline from someone else's experience.
+
+## 5. Schedule within your authorization period
+
+Once authorized, use the official scheduling process to select an appointment. Available locations and dates can change. Before confirming, check that the appointment works with your travel plans, accessibility needs, and remaining authorization time.
+
+Read the current bulletin for rescheduling, cancellation, and missed-appointment rules before making changes. If your ATT is close to expiring, contact your regulator or Pearson VUE through the official channels listed in your instructions.
+
+## Keep a simple tracking list
+
+Record the steps that apply to you:
+
+- Identify the regulator where you are seeking licensure.
+- Review its current requirements and submit the requested materials.
+- Complete the required exam registration steps.
+- Receive and check your ATT dates.
+- Schedule an appointment that fits the authorization period.
+- Review current identification and test-center rules.
+
+This checklist is a planning aid, not an official application or a guarantee of eligibility. Requirements, fees, and policies can change. Confirm current details with your regulator, Pearson VUE, and the official [NCLEX registration page](https://www.nclex.com/register.page).
+
+Once your appointment is set, use a study schedule that matches your available time and practice needs. The [flexible weekly NCLEX study plan](/blog/nclex-flexible-weekly-study-plan) can help you choose realistic study blocks.`,
+    Date.UTC(2026, 9, 12, 0, 3),
+  ),
+  createPost(
+    "nclex-series-10",
+    "nclex-test-day-guide",
+    "What to Expect on NCLEX Test Day",
+    "Prepare for NCLEX test day with a practical checklist for the day before, arrival, breaks, and staying focused through difficult questions.",
+    `When you have been preparing for the NCLEX, the logistics of test day can become one more thing to worry about. A little planning can help you spend less energy guessing what to bring or what happens next.
+
+Policies can change, so use the current [NCLEX Candidate Bulletin](https://www.nclex.com/files/2026_NCLEX_Candidate_Bulletin_English.pdf) and the instructions for your appointment as the authority. This guide is a planning aid, not a replacement for them.
+
+## The day before your appointment
+
+Confirm the appointment time, location, travel route, and check-in instructions. Review the bulletin's identification requirements and make sure the ID you plan to use meets them. If anything about your name or identification is unclear, contact the official testing or regulatory organization before test day.
+
+Check what the testing center permits and what must be stored outside the testing room. Set aside only what the official instructions allow. Plan transportation and give yourself enough time to arrive as instructed.
+
+Try not to use the final evening to learn everything you have not yet reviewed. A short look at your plan and a practical bedtime routine may serve you better than an all-night cram session.
+
+## At the testing center
+
+Follow the arrival time, check-in, identification, and security instructions in your current bulletin. Testing-center procedures are specific; do not rely on a social media post or another candidate's memory as your source.
+
+Before beginning, listen to the instructions about the computer, permitted materials, and breaks. If you have an approved accommodation or need clarification about a procedure, use the official process before test day whenever possible.
+
+## When a question feels difficult
+
+One confusing item does not tell you how the whole exam is going. Take a breath, reread what the question is asking, identify the details that matter, and compare the options against the same task.
+
+You do not need to feel certain about every answer. Choose the response that is best supported by the information provided, then give your attention to the next item. If you have practiced this approach, use the same steady process you used in study sessions.
+
+## Plan for breaks
+
+Read the current bulletin's rules for scheduled and unscheduled breaks, including how to request or return from one and how time is handled. Decide ahead of time what would help you use a break calmly. Follow the proctor's instructions at the testing center.
+
+Do not assume the timing or details from another person's exam will match yours. The official instructions for your test date take precedence.
+
+## After the exam
+
+Follow the official result process for the jurisdiction where you applied. Avoid trying to infer an outcome from the number of questions, how the test felt, or stories about unofficial shortcuts. If your exam stops at 85 questions, remember that question count alone does not tell you whether you passed; see [what failing at 85 questions means](/blog/failed-nclex-at-85-questions).
+
+For more on the exam rules and your testing appointment, review the current [NCLEX Candidate Bulletin](https://www.nclex.com/files/2026_NCLEX_Candidate_Bulletin_English.pdf) and [official registration information](https://www.nclex.com/register.page). Save those links so you can check them again if details change.
+
+For individualized help preparing a study plan before your exam, book the [$40, 45-minute NCLEX Strategy Session](https://calendly.com/studywithmadisonrn/nclex-strategy-consult-session). The [free 15-minute introductory consultation](https://calendly.com/studywithmadisonrn/free-consultation) is for discussing tutoring options.`,
+    Date.UTC(2026, 9, 12, 0, 4),
   ),
 ];
