@@ -58,7 +58,7 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Study With Madison, RN",
+    name: "Study With Madison",
     url: "https://studywithmadison.com/",
     description: "Personalized online nursing tutoring for exam preparation, HESI/TEAS, and NCLEX strategy.",
     provider: {

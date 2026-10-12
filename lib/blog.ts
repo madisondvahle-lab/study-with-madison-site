@@ -23,12 +23,17 @@ function getDb(): D1Database {
   return env.DB;
 }
 
+function withPlainAuthor(post: BlogPost): BlogPost {
+  return { ...post, author: post.author.replace(/,\s*RN$/, "") };
+}
+
 export async function listPublishedPosts(): Promise<BlogPost[]> {
   const result = await getDb()
     .prepare("SELECT * FROM blog_posts ORDER BY published_at DESC, created_at DESC, id ASC")
     .all<BlogPost>();
   const postsBySlug = new Map(builtInPosts.map((post) => [post.slug, post]));
-  for (const post of result.results) {
+  for (const stored of result.results) {
+    const post = withPlainAuthor(stored);
     if (post.status === "published") postsBySlug.set(post.slug, post);
     else postsBySlug.delete(post.slug);
   }
@@ -44,6 +49,6 @@ export async function getPublishedPost(slug: string): Promise<BlogPost | null> {
     .prepare("SELECT * FROM blog_posts WHERE slug = ? LIMIT 1")
     .bind(slug)
     .first<BlogPost>();
-  if (storedPost) return storedPost.status === "published" ? storedPost : null;
+  if (storedPost) return storedPost.status === "published" ? withPlainAuthor(storedPost) : null;
   return builtInPosts.find((post) => post.slug === slug) ?? null;
 }

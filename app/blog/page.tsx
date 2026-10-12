@@ -7,7 +7,7 @@ import { BlogIndex } from "./blog-index";
 import "./blog-index.css";
 
 export const metadata: Metadata = {
-  title: "NCLEX Study Strategy | Study With Madison, RN",
+  title: "NCLEX Study Strategy | Study With Madison",
   description: legacyPost.description,
   alternates: { canonical: "/blog" },
   openGraph: {
@@ -47,7 +47,7 @@ export default async function BlogPage() {
     <header className="bx-masthead">
       <div className="bx-masthead-inner">
         <h1>Nursing education, made clear.</h1>
-        <p>Practical, clinically grounded guides on NCLEX strategy, clinical judgment, and study planning for nursing students and test-takers, written by Madison, RN.</p>
+        <p>Practical, clinically grounded guides on NCLEX strategy, clinical judgment, and study planning for nursing students and test-takers, written by Madison.</p>
       </div>
     </header>
     <BlogIndex posts={posts} featuredSlug={FEATURED_SLUG} />

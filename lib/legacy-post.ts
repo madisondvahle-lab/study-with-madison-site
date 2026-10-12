@@ -42,7 +42,7 @@ Targeted feedback changes outcomes. The goal is to identify your specific patter
 5. **Get specific feedback.** A tutor, professor, or study group can help you pinpoint what is actually in your way.
 
 You've already spent a lot of money trying to pass. Make sure the next dollar you spend is pointed at the real problem.`,
-  author: "Madison, RN",
+  author: "Madison",
   status: "published" as const,
   publishedAt: Date.now(),
   createdAt: Date.now(),

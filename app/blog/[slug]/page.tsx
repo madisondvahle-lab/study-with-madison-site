@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPublishedPost((await params).slug);
   if (!post) return {};
   return {
-    title: `${post.title} | Study With Madison, RN`,
+    title: `${post.title} | Study With Madison`,
     description: post.description,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {

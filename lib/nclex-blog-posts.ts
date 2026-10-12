@@ -16,7 +16,7 @@ function createPost(
     title,
     description,
     content,
-    author: "Madison, RN",
+    author: "Madison",
     status: "published",
     publishedAt: date,
     createdAt: date,
