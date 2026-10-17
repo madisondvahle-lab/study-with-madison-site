@@ -243,13 +243,13 @@ export default function Home() {
               <p className="tier-kicker">Get full support</p>
               <h4>NCLEX Complete Support + Live CAT</h4>
               <p className="tier-price">$1,350</p>
-              <p className="tier-meta">Complete coaching experience</p>
+              <p className="tier-meta">14 private 90-minute sessions</p>
               <p className="tier-value">Includes a live CAT simulation, detailed review, and priority support between sessions.</p>
               <p className="tier-fit"><strong>Best for:</strong> high-touch accountability before test day.</p>
-              <p className="tier-promise"><strong>Retake-support promise:</strong> 8 complimentary 60-minute sessions if you do not pass.</p>
+              <p className="tier-promise"><strong>Retake-support promise:</strong> 8 additional complimentary 60-minute sessions if you do not pass, subject to the eligibility terms below.</p>
               <p>For candidates who want close accountability, a personalized weekly structure, and a realistic adaptive test experience before test day.</p>
               <ul>
-                <li>Everything in NCLEX Intensive Coaching</li>
+                <li>All Intensive coaching features, with 14 private 90-minute sessions</li>
                 <li>Personalized weekly study schedule and check-ins</li>
                 <li>Priority text support between sessions, with coaching replies Monday through Friday within one business day</li>
                 <li>One live adaptive CAT simulation with a detailed post-CAT plan update</li>
