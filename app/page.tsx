@@ -240,10 +240,10 @@ export default function Home() {
                     <td>All Intensive features, plus a personalized weekly schedule and check-ins</td>
                   </tr>
                   <tr>
-                    <th scope="row">Priority between-session support</th>
-                    <td>—</td>
-                    <td>—</td>
-                    <td>Text coaching replies Monday–Friday within one business day</td>
+                    <th scope="row">Text support between sessions</th>
+                    <td>Replies within one business day, Monday–Friday</td>
+                    <td>Replies within one business day, Monday–Friday</td>
+                    <td>Priority replies within the same business day, Monday–Friday</td>
                   </tr>
                   <tr>
                     <th scope="row">Live adaptive CAT</th>
@@ -277,6 +277,7 @@ export default function Home() {
                 <li>Targeted practice assignments</li>
                 <li>Private progress portal</li>
                 <li>Mid-plan check-in and adjustment</li>
+                <li>Text support between sessions, with replies within one business day Monday–Friday</li>
               </ul>
               <a className="button" href={calendly.momentum}>Choose Momentum Coaching <span>→</span></a>
             </article>
@@ -295,6 +296,7 @@ export default function Home() {
                 <li>Personalized study roadmap</li>
                 <li>Targeted practice assignments</li>
                 <li>Private progress portal</li>
+                <li>Text support between sessions, with replies within one business day Monday–Friday</li>
               </ul>
               <a className="button" href={calendly.intensive}>Choose Intensive Coaching <span>→</span></a>
             </article>
@@ -305,14 +307,14 @@ export default function Home() {
               <h4>NCLEX Complete Support + Live CAT</h4>
               <p className="tier-price">$1,350</p>
               <p className="tier-meta">14 private 90-minute sessions</p>
-              <p className="tier-value">Includes a live CAT simulation, detailed review, and priority support between sessions.</p>
+              <p className="tier-value">Includes a live CAT simulation, detailed review, and priority text support between sessions.</p>
               <p className="tier-fit"><strong>Best for:</strong> high-touch accountability before test day.</p>
               <p className="tier-promise"><strong>Retake-support promise:</strong> 8 additional complimentary 60-minute sessions if you do not pass, subject to the eligibility terms below.</p>
               <p>For candidates who want close accountability, a personalized weekly structure, and a realistic adaptive test experience before test day.</p>
               <ul>
                 <li>All Intensive coaching features, with 14 private 90-minute sessions</li>
                 <li>Personalized weekly study schedule and check-ins</li>
-                <li>Priority text support between sessions, with coaching replies Monday through Friday within one business day</li>
+                <li>Priority text support between sessions, with replies within the same business day Monday–Friday</li>
                 <li>One live adaptive CAT simulation with a detailed post-CAT plan update</li>
               </ul>
               <a className="button" href={calendly.complete}>Choose Complete Support <span>→</span></a>
