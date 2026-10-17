@@ -1,6 +1,6 @@
 import { BrandLogo } from "./brand-logo";
 import { SessionOptions } from "./session-options";
-import { FREE_CONSULTATION_URL } from "../lib/booking";
+import { FREE_CONSULTATION_URL, STRATEGY_SESSION_URL } from "../lib/booking";
 
 const calendly = {
   consultation: FREE_CONSULTATION_URL,
@@ -14,7 +14,6 @@ const calendly = {
 };
 
 const portal = {
-  readiness: "https://madisondvahle-lab.github.io/nclex-success-center/free-readiness-check.html",
   signIn: "https://madisondvahle-lab.github.io/nclex-success-center/student-login.html",
 };
 
@@ -324,7 +323,7 @@ export default function Home() {
       </section>
 
       <section className="portal" id="student-portal">
-        <div><p className="eyebrow">Free tools + student access</p><h2>Your NCLEX Success Center.</h2><p>Start with a free readiness check, then keep your personalized study priorities, resources, and tutoring progress in one private place.</p><a className="button" href={portal.readiness}>Take the free readiness check <span>→</span></a></div>
+        <div><p className="eyebrow">Tutoring options + student access</p><h2>Choose your next step.</h2><p>Exploring tutoring? Start with a free 15-minute consultation. Want individualized review of your NCLEX performance reports and recommendations? Book a 45-minute Strategy Session for $40.</p><div className="portal-actions"><a className="button" href={FREE_CONSULTATION_URL}>Book free consultation <span>→</span></a><a className="text-link" href={STRATEGY_SESSION_URL}>Book the $40 Strategy Session <span>→</span></a></div></div>
         <div className="portal-card"><p className="portal-label">Student access</p><h3>Built around your progress.</h3><ul><li>Study plans and weekly priorities</li><li>Assessment review and focus areas</li><li>Targeted resources and tutoring notes</li></ul><p className="portal-note">Current tutoring student? Sign in securely with the email you use for tutoring.</p><a className="portal-sign-in" href={portal.signIn}>Student sign in <span>→</span></a></div>
       </section>
 
