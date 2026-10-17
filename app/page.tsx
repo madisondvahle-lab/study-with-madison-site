@@ -201,6 +201,68 @@ export default function Home() {
           <p className="service-note">Momentum and Intensive include a private progress portal—a private place for your personalized roadmap, practice assignments, progress tracking, and coaching resources. Complete includes everything in Intensive.</p>
           <p className="coaching-context">Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
           <p className="coaching-progression" aria-label="Coaching package progression"><span>Start with a clear plan</span><span>Build steady momentum</span><span>Get full support</span></p>
+          <div className="coaching-comparison">
+            <h4 id="coaching-comparison-title">Compare your coaching options</h4>
+            <p id="coaching-comparison-hint" className="comparison-hint">Compare the level of structure and support—not just the number of sessions. Swipe or scroll horizontally to see all options.</p>
+            {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- focus the scrollable comparison for keyboard access */}
+            <div className="comparison-scroll" role="region" tabIndex={0} aria-labelledby="coaching-comparison-title" aria-describedby="coaching-comparison-hint">
+              <table className="coaching-comparison-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Included</th>
+                    <th scope="col">Momentum</th>
+                    <th scope="col">Intensive</th>
+                    <th scope="col">Complete + Live CAT</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Price</th>
+                    <td>$400</td>
+                    <td>$840</td>
+                    <td>$1,350</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Best for</th>
+                    <td>Creating a clear plan and staying consistent</td>
+                    <td>Deeper content, clinical judgment, and strategy support</td>
+                    <td>High-touch accountability before test day</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Private coaching</th>
+                    <td>12 × 60-minute sessions</td>
+                    <td>12 × 90-minute sessions</td>
+                    <td>14 × 90-minute sessions</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Planning and progress</th>
+                    <td>Personalized roadmap, practice assignments, portal, and mid-plan check-in</td>
+                    <td>Diagnostic and CPR review, roadmap, practice assignments, and portal</td>
+                    <td>All Intensive features, plus a personalized weekly schedule and check-ins</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Priority between-session support</th>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>Text coaching replies Monday–Friday within one business day</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Live adaptive CAT</th>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>One simulation with detailed review and a post-CAT plan update</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Conditional retake support</th>
+                    <td>3 complimentary 60-minute sessions</td>
+                    <td>5 complimentary 60-minute sessions</td>
+                    <td>8 additional complimentary 60-minute sessions</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="comparison-footnote">Retake-support sessions are conditional and subject to the eligibility terms below. Coaching does not guarantee an NCLEX outcome.</p>
+          </div>
           <div className="coaching-tier-grid">
             <article className="coaching-tier" id="nclex-momentum">
               <p className="tier-kicker">Build your foundation</p>
