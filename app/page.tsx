@@ -182,6 +182,13 @@ export default function Home() {
           <div className="package-grid">
             {flexibleNclexPackages.map((item) => <SessionPackageCard item={item} key={item.name} />)}
           </div>
+          <aside className="consultation-callout momentum-upgrade">
+            <div>
+              <h3>Want a plan, not just targeted sessions?</h3>
+              <p>For $40 more than the 8-session package, Momentum includes 12 private 60-minute sessions, readiness and CPR review, a personalized roadmap, practice assignments, a private progress portal, and a mid-plan check-in. It also includes 3 complimentary sessions if you do not pass, subject to the eligibility terms below.</p>
+            </div>
+            <a className="button" href="#nclex-momentum">Compare Momentum Coaching <span>→</span></a>
+          </aside>
           <p className="service-note">These are targeted tutoring packages—not comprehensive NCLEX preparation programs. They do not include a full personalized NCLEX roadmap, formal progress monitoring, retake-support promises, live CAT simulation, or priority between-session coaching.</p>
         </div>
 
@@ -195,7 +202,7 @@ export default function Home() {
           <p className="coaching-context">Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
           <p className="coaching-progression" aria-label="Coaching package progression"><span>Start with a clear plan</span><span>Build steady momentum</span><span>Get full support</span></p>
           <div className="coaching-tier-grid">
-            <article className="coaching-tier">
+            <article className="coaching-tier" id="nclex-momentum">
               <p className="tier-kicker">Build your foundation</p>
               <h4>NCLEX Momentum Coaching</h4>
               <p className="tier-price">$400</p>
