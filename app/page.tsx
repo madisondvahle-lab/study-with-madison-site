@@ -4,6 +4,7 @@ import { klarnaAnswer, klarnaBookingDisclosure, klarnaDescription } from "@/lib/
 import { SessionOptions } from "./session-options";
 import { FREE_CONSULTATION_URL, STRATEGY_SESSION_URL } from "../lib/booking";
 import CoachingTier from "./coaching-tier";
+import HomeNavigation from "./home-navigation";
 
 const calendly = {
   consultation: FREE_CONSULTATION_URL,
@@ -77,16 +78,9 @@ export default function Home() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
-      <nav className="nav" aria-label="Primary navigation" style={{ flexWrap: "wrap" }}>
+      <nav className="nav home-nav" aria-label="Primary navigation">
         <BrandLogo href="#top" />
-        <div className="nav-links">
-          <a href="#how-it-works">How it works</a>
-          <a href="#services">Services</a>
-          <a href="#nclex-coaching">NCLEX coaching</a>
-          <a href="#student-portal">Student portal</a>
-          <a href="/blog">Blog</a>
-          <a href="#about">About</a>
-        </div>
+        <HomeNavigation />
         <a className="button" href={portal.signIn} style={{ padding: "12px 18px", fontSize: ".82rem", whiteSpace: "nowrap", marginLeft: "auto", flexShrink: 0 }}>Student Login <span>→</span></a>
         <a className="button button-small" href="#choose-session">Get Started</a>
       </nav>
@@ -98,7 +92,7 @@ export default function Home() {
           <p className="hero-text">One-on-one nursing tutoring for students who want clearer understanding, sharper clinical judgment, and real confidence in their next step.</p>
           <div className="hero-actions">
             <a className="button" href="#choose-session">Explore Your Options <span>→</span></a>
-            <a className="text-link" href="#services">Explore tutoring options <span>↓</span></a>
+            <a className="text-link" href="#how-it-works">How Tutoring Works <span>↓</span></a>
           </div>
           <div className="trust-row" aria-label="Credentials">
             <div><strong>17 years</strong><span>RN experience</span></div>
