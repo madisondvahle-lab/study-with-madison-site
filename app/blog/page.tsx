@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BrandLogo } from "@/app/brand-logo";
 import { listPublishedPosts } from "@/lib/blog";
 import { categorizePost } from "@/lib/blog-categories";
@@ -70,6 +71,6 @@ export default async function BlogPage() {
         </div>
       </div>
     </section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BrandLogo } from "@/app/brand-logo";
 import { getPublishedPost, renderBlogContent } from "@/lib/blog";
@@ -70,6 +71,6 @@ export default async function PublishedPost({ params }: Props) {
       <ArticlePromptCopy />
     </div>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

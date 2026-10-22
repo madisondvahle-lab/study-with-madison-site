@@ -1,4 +1,6 @@
 import { BrandLogo } from "./brand-logo";
+import Link from "next/link";
+import { klarnaAnswer, klarnaBookingDisclosure, klarnaDescription } from "@/lib/klarna";
 import { SessionOptions } from "./session-options";
 import { FREE_CONSULTATION_URL, STRATEGY_SESSION_URL } from "../lib/booking";
 
@@ -159,8 +161,20 @@ export default function Home() {
             <p>For course content, NCLEX-style questions, clinical reasoning, prioritization, study strategies, exam preparation, remediation, and learning how to apply—not simply memorize—what you&apos;re learning.</p>
           </div>
           <p className="service-context">Choose the level of support that fits your current semester. The free consultation is available if you&apos;re unsure where to start or are struggling across multiple courses.</p>
+          <p className="service-note">{klarnaBookingDisclosure}</p>
           <div className="package-grid">
             {nursingPackages.map((item) => <SessionPackageCard item={item} key={item.name} />)}
+          </div>
+          <div className="payment-options" id="klarna-payment-options">
+            <h4 className="payment-options-label">Buy Now, Pay Later with <span>Klarna</span></h4>
+            <p className="payment-options-context">{klarnaDescription}</p>
+            <p className="payment-options-context">{klarnaBookingDisclosure}</p>
+            <details className="payment-faq">
+              <summary>Can I pay with Klarna?</summary>
+              {klarnaAnswer.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <p><a href="mailto:studywithmadisonrn@gmail.com">Email Madison about missing booking links</a></p>
+              <p><Link href="/faq#payments-packages">More payment and booking FAQs</Link></p>
+            </details>
           </div>
           <p className="service-note">Semester Support sessions are valid for 4 months and can be used when you need them throughout the semester. You are not required to meet every week.</p>
           <p className="service-note">Students who purchase a tutoring package also have access to between-session support for questions, clarification, study guidance, and help staying on track. If you get stuck on a practice question, need clarification on something we covered, or have a quick question while studying, you are welcome to reach out.</p>
@@ -178,17 +192,19 @@ export default function Home() {
             <p>Need help with a few specific areas? Get targeted support without committing to a full coaching program.</p>
           </div>
           <p className="service-context">Use these sessions for NCLEX-style question strategy, prioritization and delegation, clinical judgment, NGN questions, content gaps, pharmacology, test-taking strategy, understanding why you are missing questions, and focused remediation of weak areas.</p>
+          <p className="service-note">{klarnaBookingDisclosure}</p>
           <div className="package-grid">
             {flexibleNclexPackages.map((item) => <SessionPackageCard item={item} key={item.name} />)}
           </div>
+          <p className="package-payment-note">Klarna is available for eligible tutoring packages. <a href="#klarna-payment-options">View Klarna payment details</a></p>
           <aside className="consultation-callout momentum-upgrade">
             <div>
               <h3>Want a plan, not just targeted sessions?</h3>
-              <p>For $40 more than the 8-session package, Momentum includes 12 private 60-minute sessions, readiness and CPR review, a personalized roadmap, practice assignments, a private progress portal, and a mid-plan check-in. It also includes 3 complimentary sessions if you do not pass, subject to the eligibility terms below.</p>
+              <p>For $40 more than the 8-session package, Momentum includes 12 private 60-minute sessions, readiness and CPR review, a personalized roadmap, practice assignments, a student learning portal with supplemental resources, and a mid-plan check-in. It also includes 3 complimentary sessions if you do not pass, subject to the eligibility terms below.</p>
             </div>
             <a className="button" href="#nclex-momentum">Compare Momentum Coaching <span>→</span></a>
           </aside>
-          <p className="service-note">These are targeted tutoring packages—not comprehensive NCLEX preparation programs. They do not include a full personalized NCLEX roadmap, formal progress monitoring, retake-support promises, live CAT simulation, or priority between-session coaching.</p>
+          <p className="service-note">These are targeted tutoring packages—not comprehensive NCLEX preparation programs. They do not include a full personalized NCLEX roadmap, formal progress monitoring, retake-support promises, or priority between-session coaching.</p>
         </div>
 
         <div className="service-group coaching-group structured-coaching-group">
@@ -197,7 +213,7 @@ export default function Home() {
             <p>For candidates who want a personalized study plan, consistent coaching, and progress support between sessions.</p>
           </div>
           <p className="service-context">Choose this pathway when you want a complete preparation structure, formal progress support, and the deeper coaching features described in the programs below.</p>
-          <p className="service-note">Momentum and Intensive include a private progress portal—a private place for your personalized roadmap, practice assignments, progress tracking, and coaching resources. Complete includes everything in Intensive.</p>
+          <p className="service-note">Momentum and Intensive include a student learning portal for your personalized roadmap, practice assignments, and supplemental coaching resources. Progress review is instructor-guided. Complete includes everything in Intensive.</p>
           <p className="coaching-context">Your readiness assessment, CPR, prior performance, timeline, and goals help guide the level of support that makes sense.</p>
           <p className="coaching-progression" aria-label="Coaching package progression"><span>Start with a clear plan</span><span>Build steady momentum</span><span>Get full support</span></p>
           <div className="coaching-comparison">
@@ -211,7 +227,7 @@ export default function Home() {
                     <th scope="col">Included</th>
                     <th scope="col">Momentum</th>
                     <th scope="col">Intensive</th>
-                    <th scope="col">Complete + Live CAT</th>
+                    <th scope="col">Complete + Clinical Judgment Coaching</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -246,10 +262,10 @@ export default function Home() {
                     <td>Priority replies within the same business day, Monday–Friday</td>
                   </tr>
                   <tr>
-                    <th scope="row">Live adaptive CAT</th>
+                    <th scope="row">Targeted clinical judgment coaching</th>
                     <td>—</td>
                     <td>—</td>
-                    <td>One simulation with detailed review and a post-CAT plan update</td>
+                    <td>Instructor-guided practice questions, clinical judgment exercises, and individualized remediation</td>
                   </tr>
                   <tr>
                     <th scope="row">Conditional retake support</th>
@@ -262,6 +278,7 @@ export default function Home() {
             </div>
             <p className="comparison-footnote">Retake-support sessions are conditional and subject to the eligibility terms below. Coaching does not guarantee an NCLEX outcome.</p>
           </div>
+          <p className="service-note">{klarnaBookingDisclosure}</p>
           <div className="coaching-tier-grid">
             <article className="coaching-tier" id="nclex-momentum">
               <p className="tier-kicker">Build your foundation</p>
@@ -275,7 +292,7 @@ export default function Home() {
                 <li>Readiness and CPR review</li>
                 <li>Personalized study roadmap</li>
                 <li>Targeted practice assignments</li>
-                <li>Private progress portal</li>
+                <li>Student learning portal and supplemental resources</li>
                 <li>Mid-plan check-in and adjustment</li>
                 <li>Text support between sessions, with replies within one business day Monday–Friday</li>
               </ul>
@@ -295,7 +312,7 @@ export default function Home() {
                 <li>Diagnostic and CPR review</li>
                 <li>Personalized study roadmap</li>
                 <li>Targeted practice assignments</li>
-                <li>Private progress portal</li>
+                <li>Student learning portal and supplemental resources</li>
                 <li>Text support between sessions, with replies within one business day Monday–Friday</li>
               </ul>
               <a className="button" href={calendly.intensive}>Choose Intensive Coaching <span>→</span></a>
@@ -304,29 +321,30 @@ export default function Home() {
             <article className="coaching-tier featured">
               <span className="tier-pill">Most supported</span>
               <p className="tier-kicker">Get full support</p>
-              <h4>NCLEX Complete Support + Live CAT</h4>
+              <h4>NCLEX Complete Support + Clinical Judgment Coaching</h4>
               <p className="tier-price">$1,350</p>
               <p className="tier-meta">14 private 90-minute sessions</p>
-              <p className="tier-value">Includes a live CAT simulation, detailed review, and priority text support between sessions.</p>
+              <p className="tier-value">Includes instructor-guided NCLEX practice, detailed review, and priority text support between sessions.</p>
               <p className="tier-fit"><strong>Best for:</strong> high-touch accountability before test day.</p>
               <p className="tier-promise"><strong>Retake-support promise:</strong> 8 additional complimentary 60-minute sessions if you do not pass, subject to the eligibility terms below.</p>
-              <p>For candidates who want close accountability, a personalized weekly structure, and a realistic adaptive test experience before test day.</p>
+              <p>For candidates who want close accountability, a personalized weekly structure, and targeted clinical judgment coaching before test day.</p>
               <ul>
                 <li>All Intensive coaching features, with 14 private 90-minute sessions</li>
                 <li>Personalized weekly study schedule and check-ins</li>
                 <li>Priority text support between sessions, with replies within the same business day Monday–Friday</li>
-                <li>One live adaptive CAT simulation with a detailed post-CAT plan update</li>
+                <li>Instructor-guided practice questions, clinical judgment exercises, and individualized remediation</li>
               </ul>
               <a className="button" href={calendly.complete}>Choose Complete Support <span>→</span></a>
             </article>
           </div>
-          <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. Retake-support sessions are available once to candidates who complete their booked coaching sessions, follow their agreed study commitments, and take the NCLEX within 90 days of their final coaching session. Retake-support sessions must be used within 6 months of a confirmed unsuccessful attempt. One live CAT appointment includes up to three reserved hours; candidates with approved testing accommodations may arrange additional reserved time in advance. Coaching does not guarantee an NCLEX outcome.</p>
+          <p className="package-payment-note">Klarna is available for eligible tutoring packages. <a href="#klarna-payment-options">View Klarna payment details</a></p>
+          <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. Your progress is evaluated throughout tutoring through individualized feedback, practice question review, assessment results, and ongoing identification of areas needing improvement. Retake-support sessions are available once to candidates who complete their booked coaching sessions, follow their agreed study commitments, and take the NCLEX within 90 days of their final coaching session. Retake-support sessions must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
         </div>
       </section>
 
       <section className="portal" id="student-portal">
         <div><p className="eyebrow">Tutoring options + student access</p><h2>Choose your next step.</h2><p>Exploring tutoring? Start with a free 15-minute consultation. Want individualized review of your NCLEX performance reports and recommendations? Book a 45-minute Strategy Session for $40.</p><div className="portal-actions"><a className="button" href={FREE_CONSULTATION_URL}>Book free consultation <span>→</span></a><a className="text-link" href={STRATEGY_SESSION_URL}>Book the $40 Strategy Session <span>→</span></a></div></div>
-        <div className="portal-card"><p className="portal-label">Student access</p><h3>Built around your progress.</h3><ul><li>Study plans and weekly priorities</li><li>Assessment review and focus areas</li><li>Targeted resources and tutoring notes</li></ul><p className="portal-note">Current tutoring student? Sign in securely with the email you use for tutoring.</p><a className="portal-sign-in" href={portal.signIn}>Student sign in <span>→</span></a></div>
+        <div className="portal-card"><p className="portal-label">Student access</p><h3>Support for your next step.</h3><ul><li>Supplemental study guides and educational resources</li><li>Targeted remediation materials</li><li>Personalized learning support</li></ul><p className="portal-note">Resources are shared individually or through the learning portal, as applicable to your needs and purchased services. Current tutoring student? Sign in with the email you use for tutoring.</p><a className="portal-sign-in" href={portal.signIn}>Student sign in <span>→</span></a></div>
       </section>
 
       <section className="section about" id="about">
@@ -346,7 +364,7 @@ export default function Home() {
 
       <section className="final-cta"><p className="eyebrow light">Your next step can be simple</p><h2>Let&apos;s make a plan<br />that feels doable.</h2><p>Not everyone needs ongoing tutoring. Sometimes you just need help figuring out what&apos;s keeping you from making progress. Pick the option that fits.</p><a className="button button-light" href="#choose-session">Get Started <span>→</span></a></section>
 
-      <footer><BrandLogo href="#top" /><p>Personalized nursing tutoring, online via Zoom.</p><a href="#choose-session">Explore your options →</a></footer>
+      <footer><BrandLogo href="#top" /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><a href="#choose-session">Explore your options →</a></footer>
     </main>
   );
 }
