@@ -30,14 +30,14 @@ type SessionPackage = {
 };
 
 const nursingPackages: SessionPackage[] = [
-  { name: "Individual Session", price: "$55", detail: "1 private 60-minute tutoring session", copy: "A focused session for a difficult topic, an upcoming exam, test-taking strategy, or getting unstuck in a specific course.", href: calendly.single, benefits: [], featured: false },
+  { name: "Individual Session", price: "$75", detail: "1 private 60-minute tutoring session", copy: "A focused session for a difficult topic, an upcoming exam, test-taking strategy, or getting unstuck in a specific course.", href: calendly.single, benefits: [], featured: false },
   { name: "3-Session Starter", price: "$150", detail: "3 private 60-minute sessions · $50/session", copy: "Short-term support around a difficult unit, exam, or specific area of weakness.", href: calendly.three, benefits: [], featured: false },
   { name: "5-Session Course Support", price: "$235", detail: "5 private 60-minute sessions · $47/session", copy: "Consistent support through several units or upcoming exams.", href: calendly.five, benefits: ["Course-content support", "NCLEX-style question strategy", "Clinical reasoning and prioritization", "Exam preparation and remediation", "Personalized study strategies"], featured: false },
   { name: "8-Session Semester Support", price: "$360", detail: "8 private 60-minute sessions · $45/session", copy: "Ongoing academic support across the current semester—not simply a bundle of tutoring hours.", href: calendly.eight, featured: true, benefits: ["Support across current nursing courses", "NCLEX-style test-taking and clinical reasoning", "Exam preparation and remediation", "Personalized study strategies", "Progress tracking", "Exam/unit planning", "Priority scheduling around major exams"] },
 ];
 
 const flexibleNclexPackages: SessionPackage[] = [
-  { name: "Individual Session", price: "$55", detail: "1 private 60-minute tutoring session", copy: "Targeted help with question strategy, content gaps, prioritization, or a specific area you want to understand more clearly.", href: calendly.single, benefits: [] },
+  { name: "Individual Session", price: "$75", detail: "1 private 60-minute tutoring session", copy: "Targeted help with question strategy, content gaps, prioritization, or a specific area you want to understand more clearly.", href: calendly.single, benefits: [] },
   { name: "3-Session Package", price: "$150", detail: "3 private 60-minute sessions · $50/session", copy: "Focused support for a few weak areas, a difficult content system, or a concentrated round of NCLEX practice.", href: calendly.three, benefits: [] },
   { name: "5-Session Package", price: "$235", detail: "5 private 60-minute sessions · $47/session", copy: "Targeted remediation across several NCLEX topics, question types, or test-taking patterns.", href: calendly.five, benefits: [] },
   { name: "8-Session Package", price: "$360", detail: "8 private 60-minute sessions · $45/session", copy: "Flexible support for candidates who need repeated practice and remediation without enrolling in a full coaching program.", href: calendly.eight, benefits: [] },
@@ -144,7 +144,7 @@ export default function Home() {
             <p className="eyebrow">Currently in nursing school?</p>
             <h3>Nursing School Support</h3>
             <p>Private tutoring for the semester you&apos;re in and the nurse you&apos;re becoming.</p>
-            <p className="support-path-meta">Private sessions from <strong>$55</strong></p>
+            <p className="support-path-meta">Individual sessions <strong>$75</strong></p>
             <a href="#nursing-school-support">View nursing school support <span>→</span></a>
           </article>
           <article className="support-path support-path-featured">
