@@ -3,6 +3,7 @@ import Link from "next/link";
 import { klarnaAnswer, klarnaBookingDisclosure, klarnaDescription } from "@/lib/klarna";
 import { SessionOptions } from "./session-options";
 import { FREE_CONSULTATION_URL, STRATEGY_SESSION_URL } from "../lib/booking";
+import CoachingTier from "./coaching-tier";
 
 const calendly = {
   consultation: FREE_CONSULTATION_URL,
@@ -12,7 +13,9 @@ const calendly = {
   eight: "https://calendly.com/studywithmadisonrn/packages/72afc34c-f344-47ad-802c-2e95db646cec",
   momentum: "https://calendly.com/studywithmadisonrn/packages/5b6fa8d0-259e-4628-a5ad-7f7006ed279c",
   intensive: "https://calendly.com/studywithmadisonrn/packages/8cd657fe-bb52-454a-9be9-ffdab8505466",
+  intensive60: "https://calendly.com/studywithmadisonrn/packages/a2b18332-9cae-49a7-b271-73aa21430278",
   complete: "https://calendly.com/studywithmadisonrn/packages/24aac88d-0760-484e-ad1a-d64609049825",
+  complete60: "https://calendly.com/studywithmadisonrn/packages/59f23d78-b246-45bb-808d-8c0d7c821a1f",
 };
 
 const portal = {
@@ -227,7 +230,7 @@ export default function Home() {
                     <th scope="col">Included</th>
                     <th scope="col">Momentum</th>
                     <th scope="col">Intensive</th>
-                    <th scope="col">Complete + Clinical Judgment Coaching</th>
+                    <th scope="col">Complete Support + Live CAT</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -245,9 +248,9 @@ export default function Home() {
                   </tr>
                   <tr>
                     <th scope="row">Private coaching</th>
-                    <td>12 × 60-minute sessions</td>
-                    <td>12 × 90-minute sessions</td>
-                    <td>14 × 90-minute sessions</td>
+                    <td>12 × 60-minute sessions · 12 hours</td>
+                    <td>18 × 60-minute or 12 × 90-minute sessions · 18 hours</td>
+                    <td>21 × 60-minute or 14 × 90-minute sessions · 21 hours</td>
                   </tr>
                   <tr>
                     <th scope="row">Planning and progress</th>
@@ -268,6 +271,12 @@ export default function Home() {
                     <td>Instructor-guided practice questions, clinical judgment exercises, and individualized remediation</td>
                   </tr>
                   <tr>
+                    <th scope="row">Separate Live CAT simulation</th>
+                    <td>—</td>
+                    <td>—</td>
+                    <td>One included appointment, up to three hours; booking instructions provided manually after purchase. CAT time does not use coaching hours; post-CAT review uses regular coaching hours.</td>
+                  </tr>
+                  <tr>
                     <th scope="row">Conditional retake support</th>
                     <td>3 complimentary 60-minute sessions</td>
                     <td>5 complimentary 60-minute sessions</td>
@@ -279,15 +288,16 @@ export default function Home() {
             <p className="comparison-footnote">Retake-support sessions are conditional and subject to the eligibility terms below. Coaching does not guarantee an NCLEX outcome.</p>
           </div>
           <p className="service-note">{klarnaBookingDisclosure}</p>
+          <p className="service-context" id="coaching-format-explanation">For Intensive and Complete Support: Choose the session length that works best for you. Both formats include the same total coaching hours and support.</p>
           <div className="coaching-tier-grid">
             <article className="coaching-tier" id="nclex-momentum">
               <p className="tier-kicker">Build your foundation</p>
               <h4>NCLEX Momentum Coaching</h4>
               <p className="tier-price">$400</p>
-              <p className="tier-meta">12 private 60-minute sessions</p>
+              <p className="tier-meta">12 private 60-minute sessions<span className="tier-hours">12 total private coaching hours</span></p>
               <p className="tier-fit"><strong>Best for:</strong> creating a clear plan and staying consistent.</p>
               <p className="tier-promise"><strong>Retake-support promise:</strong> 3 complimentary 60-minute sessions if you do not pass.</p>
-              <p>A structured coaching plan for students who want consistency, a clear roadmap, and meaningful progress between sessions.</p>
+              <p>Build your foundation with a clear plan and consistent coaching.</p>
               <ul>
                 <li>Readiness and CPR review</li>
                 <li>Personalized study roadmap</li>
@@ -299,43 +309,50 @@ export default function Home() {
               <a className="button" href={calendly.momentum}>Choose Momentum Coaching <span>→</span></a>
             </article>
 
-            <article className="coaching-tier">
-              <p className="tier-kicker">Build steady momentum</p>
-              <h4>NCLEX Intensive Coaching</h4>
-              <p className="tier-price">$840</p>
-              <p className="tier-meta">12 private 90-minute sessions</p>
+            <CoachingTier
+              id="intensive"
+              name="NCLEX Intensive Coaching"
+              kicker="Build steady momentum"
+              price="$840"
+              totalHours={18}
+              checkoutLinks={{ 60: calendly.intensive60, 90: calendly.intensive }}
+              buttonText="Choose Intensive Coaching"
+            >
               <p className="tier-fit"><strong>Best for:</strong> deeper content, clinical judgment, and strategy support.</p>
               <p className="tier-promise"><strong>Retake-support promise:</strong> 5 complimentary 60-minute sessions if you do not pass.</p>
-              <p>For candidates who need a tailored plan and consistent support across content, clinical judgment, and question strategy.</p>
+              <p>Strengthen clinical judgment, content mastery, and question strategy with more coaching time.</p>
               <ul>
-                <li>12 private 90-minute coaching sessions</li>
                 <li>Diagnostic and CPR review</li>
                 <li>Personalized study roadmap</li>
                 <li>Targeted practice assignments</li>
                 <li>Student learning portal and supplemental resources</li>
                 <li>Text support between sessions, with replies within one business day Monday–Friday</li>
               </ul>
-              <a className="button" href={calendly.intensive}>Choose Intensive Coaching <span>→</span></a>
-            </article>
+            </CoachingTier>
 
-            <article className="coaching-tier featured">
-              <span className="tier-pill">Most supported</span>
-              <p className="tier-kicker">Get full support</p>
-              <h4>NCLEX Complete Support + Clinical Judgment Coaching</h4>
-              <p className="tier-price">$1,350</p>
-              <p className="tier-meta">14 private 90-minute sessions</p>
-              <p className="tier-value">Includes instructor-guided NCLEX practice, detailed review, and priority text support between sessions.</p>
-              <p className="tier-fit"><strong>Best for:</strong> high-touch accountability before test day.</p>
+            <CoachingTier
+              id="complete"
+              name="NCLEX Complete Support + Live CAT"
+              kicker="Get full support"
+              price="$1,350"
+              totalHours={21}
+              checkoutLinks={{ 60: calendly.complete60, 90: calendly.complete }}
+              buttonText="Choose Complete Support"
+              featured
+            >
+              <p className="tier-value">Our most comprehensive NCLEX preparation experience.</p>
+              <p className="tier-fit"><strong>Best for:</strong> the highest level of personalized coaching, accountability, and CAT preparation.</p>
               <p className="tier-promise"><strong>Retake-support promise:</strong> 8 additional complimentary 60-minute sessions if you do not pass, subject to the eligibility terms below.</p>
-              <p>For candidates who want close accountability, a personalized weekly structure, and targeted clinical judgment coaching before test day.</p>
+              <p>More coaching, more accountability, and a personalized plan that evolves with your progress.</p>
               <ul>
-                <li>All Intensive coaching features, with 14 private 90-minute sessions</li>
-                <li>Personalized weekly study schedule and check-ins</li>
+                <li>All Intensive Coaching benefits</li>
+                <li>Personalized weekly study schedules, accountability, and check-ins</li>
                 <li>Priority text support between sessions, with replies within the same business day Monday–Friday</li>
                 <li>Instructor-guided practice questions, clinical judgment exercises, and individualized remediation</li>
+                <li>One included live adaptive CAT simulation: a separate appointment with up to three hours reserved, without deducting coaching hours or adding a fee</li>
+                <li>Detailed post-CAT review and individualized study-plan adjustments during regular coaching hours</li>
               </ul>
-              <a className="button" href={calendly.complete}>Choose Complete Support <span>→</span></a>
-            </article>
+            </CoachingTier>
           </div>
           <p className="package-payment-note">Klarna is available for eligible tutoring packages. <a href="#klarna-payment-options">View Klarna payment details</a></p>
           <p className="coaching-note">All coaching is individualized. A package is selected after reviewing your readiness assessment and goals. Your progress is evaluated throughout tutoring through individualized feedback, practice question review, assessment results, and ongoing identification of areas needing improvement. Retake-support sessions are available once to candidates who complete their booked coaching sessions, follow their agreed study commitments, and take the NCLEX within 90 days of their final coaching session. Retake-support sessions must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
