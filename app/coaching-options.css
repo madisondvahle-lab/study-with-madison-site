@@ -82,6 +82,98 @@
   margin-bottom: 20px;
 }
 
+.tier-hours {
+  display: block;
+  margin-top: 6px;
+}
+
+.session-format {
+  min-width: 0;
+  margin: 12px 0 16px;
+  padding: 0;
+  border: 0;
+}
+
+.session-format legend {
+  margin-bottom: 8px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.session-format-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #dfd7d1;
+  border-radius: 12px;
+  background: #fff7f1;
+}
+
+.session-format-option {
+  position: relative;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.session-format-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.session-format-option span {
+  display: flex;
+  min-height: 44px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 6px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  color: var(--ink);
+  font-size: .75rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.session-format-option input:checked + span {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+  font-weight: 700;
+}
+
+.session-format-option input:focus-visible + span {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.coaching-tier.featured .session-format-option input:checked + span {
+  border-color: var(--plum);
+  background: var(--plum);
+}
+
+.coaching-tier.featured .session-format-option input:focus-visible + span {
+  outline-color: #fff;
+}
+
+.coaching-tier .tier-booking-note {
+  font-size: .8rem;
+}
+
+.tier-booking-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tier-booking-note a:focus-visible,
+.coaching-tier .button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
 .coaching-tier .tier-fit {
   margin: 0 0 16px;
   color: #426079;
@@ -134,7 +226,7 @@
   line-height: 1.5;
 }
 
-.coaching-tier > p:not(.tier-kicker):not(.tier-price):not(.tier-meta) {
+.coaching-tier > p:where(:not(.tier-kicker):not(.tier-price):not(.tier-meta):not(.tier-value)) {
   color: #527087;
   line-height: 1.65;
 }
@@ -198,6 +290,11 @@
   font-weight: 900;
   letter-spacing: .1em;
   text-transform: uppercase;
+}
+
+.coaching-tier.featured .tier-kicker {
+  padding-right: 130px;
+  min-height: 22px;
 }
 
 .coaching-note {
@@ -333,6 +430,11 @@
     position: static;
     width: fit-content;
     margin-bottom: 14px;
+  }
+
+  .coaching-tier.featured .tier-kicker {
+    padding-right: 0;
+    min-height: 0;
   }
 }
 

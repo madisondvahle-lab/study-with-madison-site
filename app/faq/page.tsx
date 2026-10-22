@@ -125,6 +125,15 @@ const categories: FaqCategory[] = [
         answer: <p>Flexible tutoring provides targeted help without a comprehensive preparation program. Structured coaching includes a personalized study roadmap and ongoing support appropriate to the selected program. Progress is evaluated through individualized feedback, practice question review, existing assessment results, and identification of areas needing improvement—not an automated performance dashboard. See the <Link href="/#nclex-coaching">coaching package descriptions</Link> for specific benefits and retake-support conditions. Tutoring does not guarantee an NCLEX outcome.</p>,
       },
       {
+        id: "coaching-session-formats",
+        question: "Can I choose 60-minute or 90-minute NCLEX coaching sessions?",
+        answer: <>
+          <p>Yes. Intensive Coaching includes either 18 private 60-minute sessions or 12 private 90-minute sessions: 18 coaching hours for $840. Complete Support includes either 21 private 60-minute sessions or 14 private 90-minute sessions: 21 coaching hours for $1,350. Select your format on the <Link href="/#coaching-format-explanation">coaching cards</Link> before following the matching purchase link. Benefits and retake-support eligibility stay the same. Momentum remains 12 private 60-minute sessions for $400.</p>
+          <p>Both Complete Support formats include one separate Live CAT appointment with up to three hours reserved, at no extra cost and without using coaching hours. Detailed post-CAT review takes place during regular coaching sessions and counts toward the 21 coaching hours. It covers performance patterns, clinical judgment, priority weaknesses, and individualized study-plan adjustments.</p>
+          <p>After purchase of either Complete Support format, Madison personally provides eligible students with CAT booking instructions. CAT booking access is provided manually, not automatically. Madison tracks completion so each student uses only their one included simulation. For help with CAT booking instructions, <a href="mailto:studywithmadisonrn@gmail.com?subject=Complete%20Support%20CAT%20booking%20access">email Madison</a>. Existing payment and booking requirements, including the separate $0.50 card payment for Klarna package purchases, still apply.</p>
+        </>,
+      },
+      {
         id: "first-session",
         question: "What should I expect during my first tutoring session?",
         answer: <p>Your first paid session is individualized around your goals, current performance, and areas of difficulty. For NCLEX students, we may work through targeted practice questions to explore how you interpret questions, recognize clinical cues, prioritize information, and choose an answer. Nursing school sessions may include concept review, practice questions, clinical reasoning, test-taking strategies, or targeted remediation. There is no single required first-session format.</p>,
@@ -153,7 +162,7 @@ const categories: FaqCategory[] = [
       {
         id: "practice-exams",
         question: "Are practice exams or an adaptive CAT included?",
-        answer: <p>Current tutoring includes instructor-guided practice questions, clinical reasoning exercises, targeted question review, and individualized remediation. Madison can review results from external CAT and readiness assessments you already have. The proprietary question bank and adaptive CAT system are still in development and are not currently advertised as included tools. No launch date is promised.</p>,
+        answer: <p>Both Complete Support formats include one separate Live CAT simulation with up to three hours reserved, without using any of the 21 private coaching hours. Madison personally provides CAT booking instructions after purchase; access is not delivered automatically. Post-CAT review takes place during regular coaching sessions and counts toward the 21 hours. Other tutoring includes instructor-guided practice questions, clinical reasoning exercises, targeted question review, and individualized remediation. Madison can review results from external CAT and readiness assessments you already have. The separate proprietary question bank and self-service adaptive CAT system are still in development; access to those tools is not included, and no launch date is promised.</p>,
       },
       {
         id: "student-resources",
