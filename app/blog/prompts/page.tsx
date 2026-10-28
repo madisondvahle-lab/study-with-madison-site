@@ -20,7 +20,7 @@ export default function PromptLibrary() {
   return <main>
     <nav className="nav" aria-label="Primary navigation">
       <BrandLogo />
-      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/blog/prompts">Prompts</a><a href="/#about">About</a></div>
+      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/blog/prompts">Prompts</a><a href="/contact">Contact</a><a href="/#about">About</a></div>
       <a className="button button-small" href="/#choose-session">Get Started</a>
     </nav>
     <section className="blog-hero"><div><p className="eyebrow">Free resource</p><h1>The NCLEX AI Study Prompt Library</h1><p>Free AI prompts designed by an RN tutor to help you strengthen clinical judgment and make the most of your study time. Copy one, paste it into ChatGPT, Gemini, or another AI tool, and fill in the brackets.</p></div></section>
@@ -47,6 +47,6 @@ export default function PromptLibrary() {
       <p className="prompt-more">Want the reasoning behind these? Start with <a href="/blog/how-to-use-chatgpt-to-study-for-the-nclex">How to Use ChatGPT to Study for the NCLEX</a>.</p>
     </div>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>AI can help you practice. A tutor can help you see what is getting in your way and build a plan you can follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

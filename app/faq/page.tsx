@@ -219,6 +219,7 @@ export default function FaqPage() {
       <BrandLogo />
       <p>Personalized nursing tutoring, online via Zoom.</p>
       <Link className="footer-faq-link" href="/faq" aria-current="page">FAQ</Link>
+      <Link className="footer-faq-link" href="/contact">Contact</Link>
       <a href="https://calendly.com/studywithmadisonrn/free-consultation">Book a free consultation →</a>
     </footer>
   </main>;

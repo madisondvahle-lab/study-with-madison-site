@@ -8,6 +8,7 @@ const links = [
   { href: "#nclex-coaching", label: "NCLEX Coaching" },
   { href: "/faq", label: "FAQ" },
   { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Contact" },
   { href: "#about", label: "About" },
 ];
 

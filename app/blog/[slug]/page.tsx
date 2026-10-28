@@ -62,7 +62,7 @@ export default async function PublishedPost({ params }: Props) {
   return <main>
     <nav className="nav" aria-label="Primary navigation">
       <BrandLogo />
-      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/#about">About</a></div>
+      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/contact">Contact</a><a href="/#about">About</a></div>
     </nav>
     <section className="blog-hero"><div><p className="eyebrow">NCLEX study strategy</p><h1>{post.title}</h1><p>{post.description}</p><p className="article-meta">By {post.author} · {readTime(post.content)} min read</p></div></section>
     <div className={`article-layout${sections.length > 1 ? "" : " article-layout-solo"}`}>
@@ -71,6 +71,6 @@ export default async function PublishedPost({ params }: Props) {
       <ArticlePromptCopy />
     </div>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

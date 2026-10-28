@@ -42,7 +42,7 @@ export default async function BlogPage() {
   return <main>
     <nav className="nav" aria-label="Primary navigation">
       <BrandLogo />
-      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/#about">About</a></div>
+      <div className="nav-links"><a href="/#how-it-works">How it works</a><a href="/#services">Services</a><a href="/blog">Blog</a><a href="/contact">Contact</a><a href="/#about">About</a></div>
       <a className="button button-small" href="/#choose-session">Get Started</a>
     </nav>
     <header className="bx-masthead">
@@ -71,6 +71,6 @@ export default async function BlogPage() {
         </div>
       </div>
     </section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }
