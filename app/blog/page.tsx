@@ -71,6 +71,6 @@ export default async function BlogPage() {
         </div>
       </div>
     </section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><Link className="footer-faq-link" href="/privacy-policy">Privacy</Link><Link className="footer-faq-link" href="/terms-of-service">Terms</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

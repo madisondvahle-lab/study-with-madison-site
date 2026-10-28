@@ -55,10 +55,9 @@ const categories: FaqCategory[] = [
       {
         id: "rescheduling-cancellations",
         question: "How do I reschedule or cancel a session?",
-        proposed: true,
         answer: <>
           <p>Use the rescheduling or cancellation links in your Calendly booking confirmation email.</p>
-          <p>Proposed policy: please give at least 24 hours&apos; notice for cancellations or rescheduling. Cancellations with less than 24 hours&apos; notice may result in the session being forfeited. No-shows without prior communication may count as a completed session. Exceptions for emergencies or unexpected circumstances may be made at Madison&apos;s discretion.</p>
+          <p>Please give at least 24 hours&apos; notice for cancellations or rescheduling. Changes made with less than 24 hours&apos; notice, or a missed appointment without prior communication, may be treated as a completed session. Contact Madison as soon as possible if an unexpected circumstance affects your appointment.</p>
         </>,
       },
     ],
@@ -71,26 +70,22 @@ const categories: FaqCategory[] = [
       {
         id: "package-expiration",
         question: "When do tutoring packages expire?",
-        proposed: true,
         answer: <>
-          <p>The following validity periods are proposed and awaiting approval:</p>
+          <p>Unless the purchase details say otherwise, package validity begins on the purchase date:</p>
           <ul>
-            <li>Nursing School 3-Session Starter: 60 days from purchase.</li>
-            <li>Nursing School 5-Session Course Support: 90 days from purchase.</li>
-            <li>Nursing School Semester Support: 4 months from purchase.</li>
-            <li>Flexible NCLEX 3-Session Package: 60 days from purchase.</li>
-            <li>Flexible NCLEX 5-Session Package: 90 days from purchase.</li>
-            <li>Flexible NCLEX 8-Session Package: 120 days from purchase.</li>
+            <li>3-session packages: 60 days.</li>
+            <li>5-session packages: 90 days.</li>
+            <li>Nursing School Semester Support: 4 months.</li>
+            <li>Flexible NCLEX 8-session package: 120 days.</li>
           </ul>
-          <p>Unused sessions should be scheduled within the applicable validity period and expire at its end. Extensions may be granted at Madison&apos;s discretion for extenuating circumstances, including illness or changes to an NCLEX testing date.</p>
-          <p>Structured coaching is individualized around your needs, preparation timeline, and anticipated NCLEX date. Fixed program durations and expiration periods have not been finalized.</p>
+          <p>Unused sessions must be scheduled within the applicable period and expire when it ends. If illness, an exam-date change, or another significant circumstance affects your ability to schedule, contact Madison before the package expires. Extensions are considered individually and are not automatic.</p>
+          <p>Structured NCLEX coaching is individualized around your preparation timeline; no fixed expiration period is currently specified for those programs.</p>
         </>,
       },
       {
         id: "package-refunds",
         question: "Are tutoring packages refundable?",
-        proposed: true,
-        answer: <p>Proposed wording for review: tutoring packages are generally nonrefundable once sessions have begun. The exact refund terms have not been finalized; this draft is not an approved refund policy.</p>,
+        answer: <p>After sessions in a package have begun, the package purchase is not refundable. Requests concerning unused sessions are reviewed individually. Email <a href="mailto:studywithmadisonrn@gmail.com">studywithmadisonrn@gmail.com</a> with your purchase details. Any non-waivable rights under applicable law remain unaffected.</p>,
       },
       {
         id: "klarna",
@@ -220,6 +215,8 @@ export default function FaqPage() {
       <p>Personalized nursing tutoring, online via Zoom.</p>
       <Link className="footer-faq-link" href="/faq" aria-current="page">FAQ</Link>
       <Link className="footer-faq-link" href="/contact">Contact</Link>
+      <Link className="footer-faq-link" href="/privacy-policy">Privacy</Link>
+      <Link className="footer-faq-link" href="/terms-of-service">Terms</Link>
       <a href="https://calendly.com/studywithmadisonrn/free-consultation">Book a free consultation →</a>
     </footer>
   </main>;

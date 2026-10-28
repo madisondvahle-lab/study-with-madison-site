@@ -47,6 +47,6 @@ export default function PromptLibrary() {
       <p className="prompt-more">Want the reasoning behind these? Start with <a href="/blog/how-to-use-chatgpt-to-study-for-the-nclex">How to Use ChatGPT to Study for the NCLEX</a>.</p>
     </div>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>AI can help you practice. A tutor can help you see what is getting in your way and build a plan you can follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/contact">Contact</Link><Link className="footer-faq-link" href="/privacy-policy">Privacy</Link><Link className="footer-faq-link" href="/terms-of-service">Terms</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }

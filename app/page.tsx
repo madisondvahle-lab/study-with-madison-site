@@ -375,7 +375,7 @@ export default function Home() {
 
       <section className="final-cta"><p className="eyebrow light">Your next step can be simple</p><h2>Let&apos;s make a plan<br />that feels doable.</h2><p>Not everyone needs ongoing tutoring. Sometimes you just need help figuring out what&apos;s keeping you from making progress. Pick the option that fits.</p><a className="button button-light" href="#choose-session">Get Started <span>→</span></a></section>
 
-      <footer><BrandLogo href="#top" /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><a href="#choose-session">Explore your options →</a></footer>
+      <footer><BrandLogo href="#top" /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><Link className="footer-faq-link" href="/privacy-policy">Privacy</Link><Link className="footer-faq-link" href="/terms-of-service">Terms</Link><a href="#choose-session">Explore your options →</a></footer>
     </main>
   );
 }

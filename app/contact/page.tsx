@@ -90,6 +90,8 @@ export default function ContactPage() {
       <p>Personalized nursing tutoring, online via Zoom.</p>
       <Link className="footer-faq-link" href="/faq">FAQ</Link>
       <Link className="footer-faq-link" href="/contact" aria-current="page">Contact</Link>
+      <Link className="footer-faq-link" href="/privacy-policy">Privacy</Link>
+      <Link className="footer-faq-link" href="/terms-of-service">Terms</Link>
       <a className="footer-faq-link" href={tiktok} target="_blank" rel="noopener noreferrer">TikTok ↗</a>
       <a href={consultation}>Book a free consultation →</a>
     </footer>

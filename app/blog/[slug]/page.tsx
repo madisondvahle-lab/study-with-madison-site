@@ -71,6 +71,6 @@ export default async function PublishedPost({ params }: Props) {
       <ArticlePromptCopy />
     </div>
     <section className="article-cta"><p className="eyebrow light">Need a real plan?</p><h2>Let&apos;s figure out<br />what comes next.</h2><p>Bring your questions, CAT results, and goals. We&apos;ll identify what&apos;s getting in your way and build a plan you can actually follow.</p><a className="button button-light" href="/#choose-session">Explore Your Options <span>→</span></a></section>
-    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><a href="/#choose-session">Explore your options →</a></footer>
+    <footer><BrandLogo /><p>Personalized nursing tutoring, online via Zoom.</p><Link className="footer-faq-link" href="/faq">FAQ</Link><Link className="footer-faq-link" href="/contact">Contact</Link><Link className="footer-faq-link" href="/privacy-policy">Privacy</Link><Link className="footer-faq-link" href="/terms-of-service">Terms</Link><a href="/#choose-session">Explore your options →</a></footer>
   </main>;
 }
