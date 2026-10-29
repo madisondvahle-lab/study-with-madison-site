@@ -89,6 +89,29 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 ## Useful Commands
 
+### Tutoring and NCLEX pricing validation
+
+The public offers use 60-minute private sessions only. Coaching program data in
+`lib/coaching-programs.ts` feeds the cards, desktop/mobile comparison, and FAQ.
+Complete includes 24 coaching hours plus one 3-hour Live CAT (27 total live hours).
+Historical purchases retain their original benefits, formats, and booking access;
+removing a public option does not revoke a purchased entitlement.
+
+Run a local preview with `npm run dev -- --port 4175`, then:
+
+```bash
+COACHING_TEST_URL=http://localhost:4175 SITE_TEST_URL=http://localhost:4175 \
+  node --test tests/coaching-packages.test.mjs tests/home-navigation.test.mjs
+```
+
+Before approving launch, verify all seven purchase destinations in Calendly:
+single $75/1 session, tutoring $210/3 and $325/5, Starter $400/8,
+Momentum $600/12, Intensive $900/18, and Complete $1,350/24 plus one
+manually issued 3-hour CAT. Preserve existing Stripe products/prices,
+historical booking links, and active agreements. Klarna still uses manual link
+delivery and the separate $0.50 card booking charge. No upgrade checkout,
+automatic entitlement provisioning, or payment-account changes are implemented.
+
 - `npm run dev`: start local development
 - `npm run build`: verify the vinext build output
 - `npm test`: build the starter and verify its rendered loading skeleton

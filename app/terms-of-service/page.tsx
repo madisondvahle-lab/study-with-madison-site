@@ -54,16 +54,16 @@ export default function TermsOfServicePage() {
         <ul>
           <li>3-session packages: 60 days from purchase.</li>
           <li>5-session packages: 90 days from purchase.</li>
-          <li>Nursing School Semester Support: 4 months from purchase.</li>
-          <li>Flexible NCLEX 8-session package: 120 days from purchase.</li>
+          <li>Previously purchased Nursing School Semester Support: 4 months from purchase.</li>
+          <li>Previously purchased Flexible NCLEX 8-session package: 120 days from purchase.</li>
         </ul>
-        <p>Structured NCLEX coaching is individualized around your preparation timeline; no fixed expiration period is currently specified for those programs. Contact Madison before a package expires if illness, an exam-date change, or another significant circumstance affects your ability to schedule. Extensions are not automatic and are considered individually.</p>
+        <p>Structured NCLEX coaching is individualized around your preparation timeline; no fixed expiration period is currently specified for those programs. All newly offered private coaching sessions are 60 minutes. Existing purchases retain their original session formats, included coaching hours, support and retake benefits, and booking access. Contact Madison before a package expires if illness, an exam-date change, or another significant circumstance affects your ability to schedule. Extensions are not automatic and are considered individually.</p>
       </section>
       <section>
         <h2>Payments, Klarna, and refunds</h2>
         <p>Payment is due as shown at checkout. Payment plans or buy-now-pay-later options, when available, are subject to the provider&apos;s own approval and terms. For eligible Klarna package purchases, a separate $0.50 booking charge may be required by credit or debit card before booking links can be issued; details are shown in the purchase information and <Link href="/faq#payments-packages">payment FAQ</Link>.</p>
         <p>After sessions in a package have begun, package purchases are not refundable. Requests concerning unused sessions are reviewed individually; email <a href={`mailto:${email}`}>{email}</a> with your purchase details. Any non-waivable rights under applicable law remain unaffected.</p>
-        <p>If you purchase a tutoring package within seven days of an eligible $40 NCLEX Strategy Session, the $40 session fee is refunded to the original payment method after the package purchase. To request this credit, email <a href={`mailto:${strategySupportEmail}`}>{strategySupportEmail}</a> with your package confirmation.</p>
+        <p>If you purchase a tutoring or coaching package within seven days of an eligible $40 NCLEX Strategy Session, the $40 session fee is refunded to the original payment method after the package purchase. To request this credit, email <a href={`mailto:${strategySupportEmail}`}>{strategySupportEmail}</a> with your package confirmation.</p>
       </section>
       <section>
         <h2>Materials and acceptable use</h2>
