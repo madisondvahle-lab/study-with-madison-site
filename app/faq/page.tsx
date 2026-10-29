@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/app/brand-logo";
 import type { ReactNode } from "react";
 import { klarnaAnswer } from "@/lib/klarna";
+import { coachingPrograms } from "@/lib/coaching-programs";
 import "./faq.css";
 
 export const metadata: Metadata = {
@@ -50,7 +51,7 @@ const categories: FaqCategory[] = [
       {
         id: "multiple-sessions",
         question: "Can I schedule multiple sessions at once?",
-        answer: <p>Yes. Use your package booking link to schedule your included sessions all at once or individually over time. You do not need to book every session at the time of purchase. Semester Support does not require weekly appointments.</p>,
+        answer: <p>Yes. Use your package booking link to schedule your included sessions all at once or individually over time. You do not need to book every session at the time of purchase. Existing Semester Support agreements do not require weekly appointments.</p>,
       },
       {
         id: "rescheduling-cancellations",
@@ -75,8 +76,8 @@ const categories: FaqCategory[] = [
           <ul>
             <li>3-session packages: 60 days.</li>
             <li>5-session packages: 90 days.</li>
-            <li>Nursing School Semester Support: 4 months.</li>
-            <li>Flexible NCLEX 8-session package: 120 days.</li>
+            <li>Previously purchased Nursing School Semester Support: 4 months.</li>
+            <li>Previously purchased Flexible NCLEX 8-session package: 120 days.</li>
           </ul>
           <p>Unused sessions must be scheduled within the applicable period and expire when it ends. If illness, an exam-date change, or another significant circumstance affects your ability to schedule, contact Madison before the package expires. Extensions are considered individually and are not automatic.</p>
           <p>Structured NCLEX coaching is individualized around your preparation timeline; no fixed expiration period is currently specified for those programs.</p>
@@ -112,7 +113,7 @@ const categories: FaqCategory[] = [
       {
         id: "nursing-school-or-nclex",
         question: "What is the difference between nursing school tutoring and NCLEX preparation?",
-        answer: <p>Nursing School Support focuses on your current courses, upcoming exams, clinical reasoning, study strategies, and remediation. Flexible NCLEX tutoring targets specific content gaps, question types, and test-taking patterns. Structured NCLEX coaching adds a personalized preparation plan and consistent instructor-guided progress support. Compare the <Link href="/#services">available tutoring options</Link> to find the right fit.</p>,
+        answer: <p>Private Nursing Tutoring supports nursing coursework, exam preparation, and focused NCLEX review. NCLEX Coaching Programs add an individualized study roadmap, clinical judgment development, and performance review appropriate to the selected program. Candidates preparing for a retake may benefit from structured coaching rather than a small tutoring package. Compare the <Link href="/#services">available tutoring options</Link> to find the right fit.</p>,
       },
       {
         id: "structured-coaching",
@@ -121,12 +122,21 @@ const categories: FaqCategory[] = [
       },
       {
         id: "coaching-session-formats",
-        question: "Can I choose 60-minute or 90-minute NCLEX coaching sessions?",
+        question: "How long are NCLEX coaching sessions, and what does each program include?",
         answer: <>
-          {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- native navigation avoids vinext intercepting this cross-page fragment */}
-          <p>Yes. Intensive Coaching includes either 18 private 60-minute sessions or 12 private 90-minute sessions: 18 coaching hours for $840. Complete Support includes either 21 private 60-minute sessions or 14 private 90-minute sessions: 21 coaching hours for $1,350. Select your format on the <a href="/#coaching-format-explanation">coaching cards</a> before following the matching purchase link. Benefits and retake-support eligibility stay the same. Momentum remains 12 private 60-minute sessions for $400.</p>
-          <p>Both Complete Support formats include one separate Live CAT appointment with up to three hours reserved, at no extra cost and without using coaching hours. Detailed post-CAT review takes place during regular coaching sessions and counts toward the 21 coaching hours. It covers performance patterns, clinical judgment, priority weaknesses, and individualized study-plan adjustments.</p>
-          <p>After purchase of either Complete Support format, Madison personally provides eligible students with CAT booking instructions. CAT booking access is provided manually, not automatically. Madison tracks completion so each student uses only their one included simulation. For help with CAT booking instructions, <a href="mailto:studywithmadisonrn@gmail.com?subject=Complete%20Support%20CAT%20booking%20access">email Madison</a>. Existing payment and booking requirements, including the separate $0.50 card payment for Klarna package purchases, still apply.</p>
+          <p>All newly offered private coaching sessions are 60 minutes.</p>
+          <ul>{coachingPrograms.map((program) => <li key={program.id}>{program.name}: {program.hours} private coaching hours for {program.price}{program.catHours > 0 ? ", plus one 3-hour Live CAT: 27 total live hours" : ""}.</li>)}</ul>
+          <p>Complete includes 24 private coaching hours and one separate 3-hour Live CAT appointment. The CAT is included in the 27 total live hours, not added to 27 coaching sessions. Detailed post-CAT review and study-plan adjustments take place during regular coaching sessions and count toward the 24 coaching hours. Review covers performance patterns, clinical judgment, and priority weaknesses.</p>
+          <p>After purchase, Madison personally provides eligible Complete students with CAT booking instructions. CAT booking access is provided manually, not automatically. Madison tracks completion so each student uses only their one included simulation. For help, <a href="mailto:studywithmadisonrn@gmail.com?subject=Complete%20Support%20CAT%20booking%20access">email Madison</a>. Existing payment and booking requirements, including the separate $0.50 card payment for Klarna package purchases, still apply.</p>
+          <p>Previously purchased packages retain their original session format, coaching hours, benefits, and booking access. The new offerings do not change existing agreements.</p>
+        </>,
+      },
+      {
+        id: "coaching-support",
+        question: "What between-session support and retake support are included?",
+        answer: <>
+          <p>Starter includes its listed progress review, not between-session messaging or complimentary retake sessions. Momentum and Intensive include brief study-question support Monday through Friday with replies within one business day. Complete receives priority handling within that same response window. Unlimited messaging, on-demand tutoring, and urgent clinical guidance are not included.</p>
+          <p>Following an unsuccessful attempt, Momentum includes 3, Intensive includes 5, and Complete includes 8 complimentary 60-minute retake sessions. These allowances are not cumulative across tiers. Eligibility requires completing booked coaching sessions, following agreed study commitments, and taking the NCLEX within 90 days of the final coaching session. Retake support is available once and must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
         </>,
       },
       {
@@ -158,7 +168,7 @@ const categories: FaqCategory[] = [
       {
         id: "practice-exams",
         question: "Are practice exams or an adaptive CAT included?",
-        answer: <p>Both Complete Support formats include one separate Live CAT simulation with up to three hours reserved, without using any of the 21 private coaching hours. Madison personally provides CAT booking instructions after purchase; access is not delivered automatically. Post-CAT review takes place during regular coaching sessions and counts toward the 21 hours. Other tutoring includes instructor-guided practice questions, clinical reasoning exercises, targeted question review, and individualized remediation. Madison can review results from external CAT and readiness assessments you already have. The separate proprietary question bank and self-service adaptive CAT system are still in development; access to those tools is not included, and no launch date is promised.</p>,
+        answer: <p>Complete Support includes 24 private coaching hours plus one 3-hour Live CAT: 27 total live hours. Madison personally provides CAT booking instructions after purchase; access is not delivered automatically. Post-CAT review takes place within the 24 coaching hours. Other programs do not include a Live CAT, but Madison can review external CAT and readiness results you already have. Previously purchased packages keep their original CAT and coaching entitlements. The separate proprietary question bank and self-service adaptive CAT system are still in development; access to those tools is not included, and no launch date is promised.</p>,
       },
       {
         id: "student-resources",

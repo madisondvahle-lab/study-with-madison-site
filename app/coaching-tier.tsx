@@ -1,74 +1,40 @@
-"use client";
+import type { CoachingProgram } from "@/lib/coaching-programs";
 
-import { useState, type ReactNode } from "react";
-
-type CoachingTierProps = {
-  id: "intensive" | "complete";
-  name: string;
-  kicker: string;
-  price: string;
-  totalHours: 18 | 21;
-  checkoutLinks: Record<60 | 90, string>;
-  buttonText: string;
-  featured?: boolean;
-  children: ReactNode;
-};
-
-export default function CoachingTier({
-  id,
-  name,
-  kicker,
-  price,
-  totalHours,
-  checkoutLinks,
-  buttonText,
-  featured = false,
-  children,
-}: CoachingTierProps) {
-  const [duration, setDuration] = useState<60 | 90>(60);
-  const formatId = `${id}-session-format`;
-  const sessionCount = totalHours * 60 / duration;
-
+export default function CoachingTier({ program }: { program: CoachingProgram }) {
   return (
-    <article className={`coaching-tier${featured ? " featured" : ""}`}>
-      {featured ? <span className="tier-pill">Most Supported</span> : null}
-      <p className="tier-kicker">{kicker}</p>
-      <h4>{name}</h4>
-      <p className="tier-price">{price}</p>
-      <fieldset className="session-format" aria-describedby="coaching-format-explanation">
-        <legend>Session format</legend>
-        <div className="session-format-options">
-          {([60, 90] as const).map((minutes) => (
-            <label className="session-format-option" key={minutes}>
-              <input
-                type="radio"
-                name={formatId}
-                value={minutes}
-                checked={duration === minutes}
-                onChange={() => setDuration(minutes)}
-              />
-              <span>{minutes}-Minute Sessions</span>
-            </label>
-          ))}
-        </div>
-      </fieldset>
-      <p className="tier-meta" aria-live="polite" aria-atomic="true">
-        {sessionCount} private {duration}-minute sessions
-        <span className="tier-hours">{totalHours} total private coaching hours</span>
+    <article
+      className={`coaching-tier${program.id === "intensive" ? " featured" : ""}`}
+      id={`nclex-${program.id}`}
+      aria-labelledby={`${program.id}-title`}
+    >
+      <div className="tier-label-space">
+        {program.label ? <span className="tier-pill">{program.label}</span> : null}
+      </div>
+      <h4 id={`${program.id}-title`}>{program.name}</h4>
+      <p className="tier-price">{program.price}</p>
+      <p className="tier-meta">
+        <strong>{program.hours} private coaching hours</strong>
+        <span className="tier-hours">{program.hours} &times; 60-minute sessions</span>
+        {program.catHours > 0 ? (
+          <span className="tier-live-total">+ one 3-hour Live CAT &middot; 27 total live hours</span>
+        ) : null}
       </p>
-      {children}
-      {featured ? (
-        <p className="tier-booking-note" id={`${formatId}-cat`}>
-          After purchase, Madison personally provides booking instructions for your one included Live CAT simulation. CAT booking access is provided manually, not automatically.
+      <p className="tier-fit">{program.fit}</p>
+      <ul>{program.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
+      {program.retakeSessions > 0 ? (
+        <p className="tier-promise">
+          <strong>Conditional retake support:</strong> {program.retakeSessions} complimentary 60-minute sessions if you do not pass.{" "}
+          <a href="#retake-support-terms">Eligibility conditions apply.</a>
         </p>
       ) : null}
-      <a
-        className="button"
-        href={checkoutLinks[duration]}
-        aria-label={`${buttonText}: ${sessionCount} ${duration}-minute sessions for ${price}`}
-        aria-describedby={featured ? `${formatId}-cat` : undefined}
-      >
-        {buttonText} <span aria-hidden="true">→</span>
+      {program.catHours > 0 ? (
+        <p className="tier-booking-note">
+          Madison personally provides booking instructions for your one included Live CAT after purchase.
+          Post-CAT review uses regular coaching hours.
+        </p>
+      ) : null}
+      <a className="button" href={program.href} aria-label={`Choose ${program.shortName}: ${program.price}, ${program.hours} private coaching hours${program.catHours > 0 ? " plus one 3-hour Live CAT" : ""}`}>
+        Choose {program.shortName} <span aria-hidden="true">&rarr;</span>
       </a>
     </article>
   );
