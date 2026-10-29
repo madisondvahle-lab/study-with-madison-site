@@ -133,7 +133,7 @@ export default function TutoringOptions() {
           </div>
           <div id="retake-support-terms">
             <h4>Conditional retake support</h4>
-            <p>Momentum includes 3, Intensive includes 5, and Complete includes 8 complimentary 60-minute sessions following an unsuccessful attempt. These are each program&apos;s total retake allowance, not cumulative benefits across tiers. Starter does not include complimentary retake sessions.</p>
+            <p>Starter includes 3, Momentum includes 5, Intensive includes 7, and Complete includes 9 complimentary 60-minute sessions following an unsuccessful attempt. These are each program&apos;s total retake allowance, not cumulative benefits across tiers.</p>
             <p>Retake-support sessions are available once to candidates who complete their booked coaching sessions, follow their agreed study commitments, and take the NCLEX within 90 days of their final coaching session. Retake-support sessions must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
           </div>
         </div>

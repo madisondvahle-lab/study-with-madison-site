@@ -135,8 +135,8 @@ const categories: FaqCategory[] = [
         id: "coaching-support",
         question: "What between-session support and retake support are included?",
         answer: <>
-          <p>Starter includes its listed progress review, not between-session messaging or complimentary retake sessions. Momentum and Intensive include brief study-question support Monday through Friday with replies within one business day. Complete receives priority handling within that same response window. Unlimited messaging, on-demand tutoring, and urgent clinical guidance are not included.</p>
-          <p>Following an unsuccessful attempt, Momentum includes 3, Intensive includes 5, and Complete includes 8 complimentary 60-minute retake sessions. These allowances are not cumulative across tiers. Eligibility requires completing booked coaching sessions, following agreed study commitments, and taking the NCLEX within 90 days of the final coaching session. Retake support is available once and must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
+          <p>Starter includes its listed progress review, not between-session messaging. Momentum and Intensive include brief study-question support Monday through Friday with replies within one business day. Complete receives priority handling within that same response window. Unlimited messaging, on-demand tutoring, and urgent clinical guidance are not included.</p>
+          <p>Following an unsuccessful attempt, Starter includes 3, Momentum includes 5, Intensive includes 7, and Complete includes 9 complimentary 60-minute retake sessions. These allowances are not cumulative across tiers. Eligibility requires completing booked coaching sessions, following agreed study commitments, and taking the NCLEX within 90 days of the final coaching session. Retake support is available once and must be used within 6 months of a confirmed unsuccessful attempt. Coaching does not guarantee an NCLEX outcome.</p>
         </>,
       },
       {

@@ -19,7 +19,7 @@ export const coachingPrograms = [
     judgment: "Targeted development",
     monitoring: "Progress review and recommendations",
     support: "Study roadmap, assignments, and progress review; no between-session messaging benefit",
-    retakeSessions: 0,
+    retakeSessions: 3,
     catHours: 0,
   },
   {
@@ -43,7 +43,7 @@ export const coachingPrograms = [
     judgment: "Clinical judgment and test-taking strategies",
     monitoring: "Scheduled performance reviews",
     support: "Consistent accountability and standard between-session support",
-    retakeSessions: 3,
+    retakeSessions: 5,
     catHours: 0,
   },
   {
@@ -66,7 +66,7 @@ export const coachingPrograms = [
     judgment: "Deeper coaching and extensive content remediation",
     monitoring: "More frequent performance reviews",
     support: "Enhanced accountability with standard between-session support",
-    retakeSessions: 5,
+    retakeSessions: 7,
     catHours: 0,
   },
   {
@@ -90,7 +90,7 @@ export const coachingPrograms = [
     judgment: "Deeper coaching and performance-based remediation",
     monitoring: "Enhanced monitoring and comprehensive performance analysis",
     support: "Enhanced accountability and priority handling within one business day",
-    retakeSessions: 8,
+    retakeSessions: 9,
     catHours: 3,
   },
 ] as const;
