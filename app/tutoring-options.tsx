@@ -72,7 +72,6 @@ export default function TutoringOptions() {
           <p>Personalized, one-on-one tutoring designed to strengthen your nursing knowledge, build clinical confidence, and help you master challenging concepts.</p>
         </div>
         <p className="service-context">For nursing students preparing for exams, students working on specific content areas, and NCLEX candidates seeking focused review.</p>
-        <p className="service-note">{klarnaBookingDisclosure} <a className="text-link" href="#klarna-payment-options">Payment details</a></p>
         <div className="package-grid tutoring-package-grid">
           {tutoringPackages.map((item) => (
             <article className="package-card" key={item.name} aria-label={item.name}>
@@ -102,7 +101,6 @@ export default function TutoringOptions() {
           <p>More than tutoring. A structured, individualized approach to NCLEX preparation focused on identifying knowledge gaps, strengthening clinical judgment, and building the skills needed to approach exam questions with confidence.</p>
         </div>
         <p className="service-context" id="coaching-format-explanation">All new private coaching sessions are 60 minutes. Choose by your preparation needs, not just the number of hours. Your previous attempts, CPR, practice results, timeline, and goals help guide the right fit.</p>
-        <p className="service-note">{klarnaBookingDisclosure} <a className="text-link" href="#klarna-payment-options">Payment details</a></p>
         <div className="coaching-tier-grid">
           {coachingPrograms.map((program) => <CoachingTier key={program.id} program={program} />)}
         </div>
