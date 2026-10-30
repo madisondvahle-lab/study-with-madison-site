@@ -33,6 +33,7 @@ const tutoringPackages = [
 const comparisonFeatures: { label: string; value: (program: CoachingProgram) => string }[] = [
   { label: "Price", value: (program) => program.price },
   { label: "Total private coaching hours", value: (program) => `${program.hours} hours (${program.hours} × 60 minutes)` },
+  { label: "Session scheduling", value: (program) => program.scheduling },
   { label: "Initial performance evaluation", value: () => "Included" },
   { label: "Individualized study roadmap", value: () => "Included" },
   { label: "Targeted practice assignments", value: () => "Included" },
@@ -79,6 +80,7 @@ export default function TutoringOptions() {
               <h4>{item.name}</h4>
               <p className="package-price">{item.price}</p>
               <p className="package-value">{item.value}</p>
+              <p>Weekday sessions only</p>
               <ul>{item.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
               <a className="button package-button" href={item.href} aria-label={`Choose ${item.name} for ${item.price}`}>
                 Choose {item.sessions === 1 ? "1 Session" : `${item.sessions} Sessions`} <span aria-hidden="true">&rarr;</span>
