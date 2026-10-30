@@ -15,6 +15,39 @@ function text(html) {
   return html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
 }
 
+test("weekend scheduling is exclusive to Complete and uses the confirmed package links", async () => {
+  const html = await render();
+  const cards = html.match(/<article class="coaching-tier[^"]*"[^>]*>[\s\S]*?<\/article>/g);
+  assert.equal(cards?.length, 4);
+  for (const card of cards.slice(0, 3)) {
+    assert.match(text(card), /Weekday sessions only/);
+    assert.doesNotMatch(text(card), /weekend/i);
+  }
+  const complete = text(cards[3]);
+  assert.match(complete, /Weekday and weekend scheduling, subject to availability/);
+  assert.match(complete, /Weekend scheduling, exclusive to Complete Support/);
+  assert.match(complete, /three-hour Live CAT|3-hour Live CAT/);
+  assert.match(complete, /Comprehensive performance analysis/);
+  assert.match(complete, /Priority support within the boundaries below/);
+  assert.match(cards[3], /href="https:\/\/calendly\.com\/studywithmadisonrn\/packages\/59f23d78-b246-45bb-808d-8c0d7c821a1f"/);
+  const tutoringCards = html.match(/<article class="package-card"[^>]*>[\s\S]*?<\/article>/g);
+  assert.equal(tutoringCards?.length, 3);
+  for (const card of tutoringCards) assert.match(text(card), /Weekday sessions only/);
+  const table = html.match(/<table class="coaching-comparison-table">[\s\S]*?<\/table>/)?.[0];
+  assert.match(table, /Session scheduling/);
+  assert.match(table, /Weekday and weekend scheduling, subject to availability/);
+  const mobile = html.match(/<div class="coaching-comparison-mobile">[\s\S]*?<\/section>/)?.[0];
+  assert.match(mobile, /Session scheduling/);
+  assert.match(mobile, /Weekday and weekend scheduling, subject to availability/);
+  const faq = text(await render("/faq"));
+  assert.match(faq, /Weekend sessions are available exclusively with NCLEX Complete Support, subject to availability/);
+  for (const [index, hours, price, retake] of [[0, 8, "$400", 3], [1, 12, "$600", 5], [2, 18, "$900", 7], [3, 24, "$1,350", 9]]) {
+    assert.ok(text(cards[index]).includes(`${hours} private coaching hours`));
+    assert.ok(cards[index].includes(price));
+    assert.ok(text(cards[index]).includes(`${retake} complimentary 60-minute sessions`));
+  }
+});
+
 test("three targeted tutoring packages show exact prices, savings, and existing checkouts", async () => {
   const html = await render();
   const cards = html.match(/<article class="package-card"[^>]*>[\s\S]*?<\/article>/g);

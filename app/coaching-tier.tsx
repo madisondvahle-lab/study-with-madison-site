@@ -15,6 +15,7 @@ export default function CoachingTier({ program }: { program: CoachingProgram }) 
       <p className="tier-meta">
         <strong>{program.hours} private coaching hours</strong>
         <span className="tier-hours">{program.hours} &times; 60-minute sessions</span>
+        <span className="tier-hours">{program.scheduling}</span>
         {program.catHours > 0 ? (
           <span className="tier-live-total">+ one 3-hour Live CAT &middot; 27 total live hours</span>
         ) : null}

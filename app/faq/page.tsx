@@ -54,6 +54,11 @@ const categories: FaqCategory[] = [
         answer: <p>Yes. Use your package booking link to schedule your included sessions all at once or individually over time. You do not need to book every session at the time of purchase. Existing Semester Support agreements do not require weekly appointments.</p>,
       },
       {
+        id: "weekend-sessions",
+        question: "Which packages include weekend sessions?",
+        answer: <p>Weekend sessions are available exclusively with NCLEX Complete Support, subject to availability. Single sessions, 3- and 5-session tutoring packages, Starter, Momentum, and Intensive are weekdays only. Complete Support also includes one 3-hour Live CAT, comprehensive performance analysis, individualized remediation, priority support within the stated support boundaries, and enhanced accountability and progress monitoring.</p>,
+      },
+      {
         id: "rescheduling-cancellations",
         question: "How do I reschedule or cancel a session?",
         answer: <>
